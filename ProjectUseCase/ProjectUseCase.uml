@@ -1,0 +1,235 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<uml:Model xmi:version="20131001" xmlns:xmi="http://www.omg.org/spec/XMI/20131001" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:uml="http://www.eclipse.org/uml2/5.0.0/UML" xmi:id="_VBTpUERcEe2ye_2Ah03vKQ" name="ProjectUseCase">
+  <packageImport xmi:type="uml:PackageImport" xmi:id="_VHaRUERcEe2ye_2Ah03vKQ">
+    <importedPackage xmi:type="uml:Model" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#_0"/>
+  </packageImport>
+  <packagedElement xmi:type="uml:Actor" xmi:id="_YGKhcERcEe2ye_2Ah03vKQ" name="New User"/>
+  <packagedElement xmi:type="uml:Package" xmi:id="_0tBbcETQEe2ye_2Ah03vKQ" name="Snake Party">
+    <packagedElement xmi:type="uml:UseCase" xmi:id="_of5-UETQEe2ye_2Ah03vKQ" name="Username Availability Check">
+      <extend xmi:type="uml:Extend" xmi:id="_-VI9gETWEe2ye_2Ah03vKQ" extendedCase="_tdlZQETQEe2ye_2Ah03vKQ" extensionLocation="_-VOdEETWEe2ye_2Ah03vKQ"/>
+      <include xmi:type="uml:Include" xmi:id="_PmWKIETYEe2ye_2Ah03vKQ" addition="_8su_0ETXEe2ye_2Ah03vKQ"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:UseCase" xmi:id="_el8BQERcEe2ye_2Ah03vKQ" name="Sign Up">
+      <include xmi:type="uml:Include" xmi:id="_sZWGUETWEe2ye_2Ah03vKQ" addition="_of5-UETQEe2ye_2Ah03vKQ"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:UseCase" xmi:id="_tdlZQETQEe2ye_2Ah03vKQ" name="Username is not available">
+      <extensionPoint xmi:type="uml:ExtensionPoint" xmi:id="_-VOdEETWEe2ye_2Ah03vKQ" name="ExtensionPoint1"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:UseCase" xmi:id="_DRkC8ETREe2ye_2Ah03vKQ" name="Login">
+      <include xmi:type="uml:Include" xmi:id="_aCYgoETXEe2ye_2Ah03vKQ" addition="_M14R0ETREe2ye_2Ah03vKQ"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:UseCase" xmi:id="_M14R0ETREe2ye_2Ah03vKQ" name="Username/Password Verification">
+      <extend xmi:type="uml:Extend" xmi:id="_iLadQETXEe2ye_2Ah03vKQ" extendedCase="_TLd64ETREe2ye_2Ah03vKQ" extensionLocation="_iLc5gETXEe2ye_2Ah03vKQ"/>
+      <include xmi:type="uml:Include" xmi:id="_40SuoETXEe2ye_2Ah03vKQ" addition="_vZdy8ETXEe2ye_2Ah03vKQ"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:UseCase" xmi:id="_TLd64ETREe2ye_2Ah03vKQ" name="Username/Password incorrect">
+      <extensionPoint xmi:type="uml:ExtensionPoint" xmi:id="_iLc5gETXEe2ye_2Ah03vKQ" name="ExtensionPoint1"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:UseCase" xmi:id="_anMFkETREe2ye_2Ah03vKQ" name="Find Game">
+      <include xmi:type="uml:Include" xmi:id="_0BppkETYEe2ye_2Ah03vKQ" addition="_gQKgQETREe2ye_2Ah03vKQ"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:UseCase" xmi:id="_gQKgQETREe2ye_2Ah03vKQ" name="Start game">
+      <include xmi:type="uml:Include" xmi:id="_ld33EETYEe2ye_2Ah03vKQ" addition="_pZcY8ETREe2ye_2Ah03vKQ"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:UseCase" xmi:id="_pZcY8ETREe2ye_2Ah03vKQ" name="User presses WASD">
+      <extend xmi:type="uml:Extend" xmi:id="_IJjL8ETZEe2ye_2Ah03vKQ" extendedCase="_HdSnEETSEe2ye_2Ah03vKQ" extensionLocation="_IJoEcETZEe2ye_2Ah03vKQ"/>
+      <include xmi:type="uml:Include" xmi:id="_J5uJEETZEe2ye_2Ah03vKQ" addition="_Np9ksETSEe2ye_2Ah03vKQ"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:UseCase" xmi:id="_HdSnEETSEe2ye_2Ah03vKQ" name="User snake scores point">
+      <extensionPoint xmi:type="uml:ExtensionPoint" xmi:id="_IJoEcETZEe2ye_2Ah03vKQ" name="ExtensionPoint1"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:UseCase" xmi:id="_Np9ksETSEe2ye_2Ah03vKQ" name="Game ends">
+      <include xmi:type="uml:Include" xmi:id="_N8Bg4ETZEe2ye_2Ah03vKQ" addition="_b_anUETSEe2ye_2Ah03vKQ"/>
+      <include xmi:type="uml:Include" xmi:id="_O0TMsETZEe2ye_2Ah03vKQ" addition="_TA-FoETSEe2ye_2Ah03vKQ"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:UseCase" xmi:id="_TA-FoETSEe2ye_2Ah03vKQ" name="User loses">
+      <include xmi:type="uml:Include" xmi:id="_SdoD0ETZEe2ye_2Ah03vKQ" addition="_j5YNMETSEe2ye_2Ah03vKQ"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:UseCase" xmi:id="_b_anUETSEe2ye_2Ah03vKQ" name="User wins">
+      <include xmi:type="uml:Include" xmi:id="_TN0KoETZEe2ye_2Ah03vKQ" addition="_j5YNMETSEe2ye_2Ah03vKQ"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:UseCase" xmi:id="_j5YNMETSEe2ye_2Ah03vKQ" name="User logs"/>
+    <packagedElement xmi:type="uml:UseCase" xmi:id="_vZdy8ETXEe2ye_2Ah03vKQ" name="Login Successful">
+      <include xmi:type="uml:Include" xmi:id="_ZEQPAETYEe2ye_2Ah03vKQ" addition="_anMFkETREe2ye_2Ah03vKQ"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:UseCase" xmi:id="_8su_0ETXEe2ye_2Ah03vKQ" name="Sign-up Successful">
+      <include xmi:type="uml:Include" xmi:id="_WLPagETYEe2ye_2Ah03vKQ" addition="_vZdy8ETXEe2ye_2Ah03vKQ"/>
+    </packagedElement>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Association" xmi:id="_JoyG4ETVEe2ye_2Ah03vKQ" name="Create Sign up" memberEnd="_JpPZ4ETVEe2ye_2Ah03vKQ _JpWHkETVEe2ye_2Ah03vKQ">
+    <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_JpHeEETVEe2ye_2Ah03vKQ" source="org.eclipse.papyrus">
+      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_JpMWkETVEe2ye_2Ah03vKQ" key="nature" value="UML_Nature"/>
+    </eAnnotations>
+    <ownedEnd xmi:type="uml:Property" xmi:id="_JpPZ4ETVEe2ye_2Ah03vKQ" name="sign up" type="_el8BQERcEe2ye_2Ah03vKQ" association="_JoyG4ETVEe2ye_2Ah03vKQ"/>
+    <ownedEnd xmi:type="uml:Property" xmi:id="_JpWHkETVEe2ye_2Ah03vKQ" name="new user" type="_YGKhcERcEe2ye_2Ah03vKQ" association="_JoyG4ETVEe2ye_2Ah03vKQ"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Actor" xmi:id="_x4MxIETVEe2ye_2Ah03vKQ" name="Existing User"/>
+  <packagedElement xmi:type="uml:Association" xmi:id="_3nKfEETVEe2ye_2Ah03vKQ" name="Enters Username/Password" memberEnd="_3nWsUETVEe2ye_2Ah03vKQ _3nX6cETVEe2ye_2Ah03vKQ">
+    <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_3nSa4ETVEe2ye_2Ah03vKQ" source="org.eclipse.papyrus">
+      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_3nU3IETVEe2ye_2Ah03vKQ" key="nature" value="UML_Nature"/>
+    </eAnnotations>
+    <ownedEnd xmi:type="uml:Property" xmi:id="_3nWsUETVEe2ye_2Ah03vKQ" name="login" type="_DRkC8ETREe2ye_2Ah03vKQ" association="_3nKfEETVEe2ye_2Ah03vKQ"/>
+    <ownedEnd xmi:type="uml:Property" xmi:id="_3nX6cETVEe2ye_2Ah03vKQ" name="existing user" type="_x4MxIETVEe2ye_2Ah03vKQ" association="_3nKfEETVEe2ye_2Ah03vKQ"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Association" xmi:id="_m7bkwETZEe2ye_2Ah03vKQ" memberEnd="_m7pnMETZEe2ye_2Ah03vKQ _m7sDcETZEe2ye_2Ah03vKQ">
+    <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_m7mj4ETZEe2ye_2Ah03vKQ" source="org.eclipse.papyrus">
+      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_m7oZEETZEe2ye_2Ah03vKQ" key="nature" value="UML_Nature"/>
+    </eAnnotations>
+    <ownedEnd xmi:type="uml:Property" xmi:id="_m7pnMETZEe2ye_2Ah03vKQ" name="username/password verification" type="_M14R0ETREe2ye_2Ah03vKQ" association="_m7bkwETZEe2ye_2Ah03vKQ"/>
+    <ownedEnd xmi:type="uml:Property" xmi:id="_m7sDcETZEe2ye_2Ah03vKQ" name="existing user" type="_x4MxIETVEe2ye_2Ah03vKQ" association="_m7bkwETZEe2ye_2Ah03vKQ"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Association" xmi:id="_rb9wsETZEe2ye_2Ah03vKQ" memberEnd="_rb_l4kTZEe2ye_2Ah03vKQ _rcAM8ETZEe2ye_2Ah03vKQ">
+    <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_rb_l4ETZEe2ye_2Ah03vKQ" source="org.eclipse.papyrus">
+      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_rb_l4UTZEe2ye_2Ah03vKQ" key="nature" value="UML_Nature"/>
+    </eAnnotations>
+    <ownedEnd xmi:type="uml:Property" xmi:id="_rb_l4kTZEe2ye_2Ah03vKQ" name="username/password incorrect" type="_TLd64ETREe2ye_2Ah03vKQ" association="_rb9wsETZEe2ye_2Ah03vKQ"/>
+    <ownedEnd xmi:type="uml:Property" xmi:id="_rcAM8ETZEe2ye_2Ah03vKQ" name="existing user" type="_x4MxIETVEe2ye_2Ah03vKQ" association="_rb9wsETZEe2ye_2Ah03vKQ"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Association" xmi:id="_t_igsETZEe2ye_2Ah03vKQ" memberEnd="_t_kV4ETZEe2ye_2Ah03vKQ _t_kV4UTZEe2ye_2Ah03vKQ">
+    <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_t_ju0ETZEe2ye_2Ah03vKQ" source="org.eclipse.papyrus">
+      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_t_ju0UTZEe2ye_2Ah03vKQ" key="nature" value="UML_Nature"/>
+    </eAnnotations>
+    <ownedEnd xmi:type="uml:Property" xmi:id="_t_kV4ETZEe2ye_2Ah03vKQ" name="login successful" type="_vZdy8ETXEe2ye_2Ah03vKQ" association="_t_igsETZEe2ye_2Ah03vKQ"/>
+    <ownedEnd xmi:type="uml:Property" xmi:id="_t_kV4UTZEe2ye_2Ah03vKQ" name="existing user" type="_x4MxIETVEe2ye_2Ah03vKQ" association="_t_igsETZEe2ye_2Ah03vKQ"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Association" xmi:id="_vrP0kETZEe2ye_2Ah03vKQ" memberEnd="_vrRCsETZEe2ye_2Ah03vKQ _vrRpwETZEe2ye_2Ah03vKQ">
+    <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_vrQboETZEe2ye_2Ah03vKQ" source="org.eclipse.papyrus">
+      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_vrQboUTZEe2ye_2Ah03vKQ" key="nature" value="UML_Nature"/>
+    </eAnnotations>
+    <ownedEnd xmi:type="uml:Property" xmi:id="_vrRCsETZEe2ye_2Ah03vKQ" name="find game" type="_anMFkETREe2ye_2Ah03vKQ" association="_vrP0kETZEe2ye_2Ah03vKQ"/>
+    <ownedEnd xmi:type="uml:Property" xmi:id="_vrRpwETZEe2ye_2Ah03vKQ" name="existing user" type="_x4MxIETVEe2ye_2Ah03vKQ" association="_vrP0kETZEe2ye_2Ah03vKQ"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Association" xmi:id="_xAyrMETZEe2ye_2Ah03vKQ" memberEnd="_xA1HcETZEe2ye_2Ah03vKQ _xA3jsETZEe2ye_2Ah03vKQ">
+    <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_xA0gYETZEe2ye_2Ah03vKQ" source="org.eclipse.papyrus">
+      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_xA0gYUTZEe2ye_2Ah03vKQ" key="nature" value="UML_Nature"/>
+    </eAnnotations>
+    <ownedEnd xmi:type="uml:Property" xmi:id="_xA1HcETZEe2ye_2Ah03vKQ" name="start game" type="_gQKgQETREe2ye_2Ah03vKQ" association="_xAyrMETZEe2ye_2Ah03vKQ"/>
+    <ownedEnd xmi:type="uml:Property" xmi:id="_xA3jsETZEe2ye_2Ah03vKQ" name="existing user" type="_x4MxIETVEe2ye_2Ah03vKQ" association="_xAyrMETZEe2ye_2Ah03vKQ"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Association" xmi:id="_z2u9kETZEe2ye_2Ah03vKQ" memberEnd="_z2yn8ETZEe2ye_2Ah03vKQ _z2zPAETZEe2ye_2Ah03vKQ">
+    <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_z2wywETZEe2ye_2Ah03vKQ" source="org.eclipse.papyrus">
+      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_z2yA4ETZEe2ye_2Ah03vKQ" key="nature" value="UML_Nature"/>
+    </eAnnotations>
+    <ownedEnd xmi:type="uml:Property" xmi:id="_z2yn8ETZEe2ye_2Ah03vKQ" name="user presses wasd" type="_pZcY8ETREe2ye_2Ah03vKQ" association="_z2u9kETZEe2ye_2Ah03vKQ"/>
+    <ownedEnd xmi:type="uml:Property" xmi:id="_z2zPAETZEe2ye_2Ah03vKQ" name="existing user" type="_x4MxIETVEe2ye_2Ah03vKQ" association="_z2u9kETZEe2ye_2Ah03vKQ"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Association" xmi:id="_1qL4METZEe2ye_2Ah03vKQ" memberEnd="_1qNGUkTZEe2ye_2Ah03vKQ _1qRXwETZEe2ye_2Ah03vKQ">
+    <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_1qNGUETZEe2ye_2Ah03vKQ" source="org.eclipse.papyrus">
+      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_1qNGUUTZEe2ye_2Ah03vKQ" key="nature" value="UML_Nature"/>
+    </eAnnotations>
+    <ownedEnd xmi:type="uml:Property" xmi:id="_1qNGUkTZEe2ye_2Ah03vKQ" name="user snake scores point" type="_HdSnEETSEe2ye_2Ah03vKQ" association="_1qL4METZEe2ye_2Ah03vKQ"/>
+    <ownedEnd xmi:type="uml:Property" xmi:id="_1qRXwETZEe2ye_2Ah03vKQ" name="existing user" type="_x4MxIETVEe2ye_2Ah03vKQ" association="_1qL4METZEe2ye_2Ah03vKQ"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Association" xmi:id="_6FwroETZEe2ye_2Ah03vKQ" memberEnd="_6Fx5wUTZEe2ye_2Ah03vKQ _6Fx5wkTZEe2ye_2Ah03vKQ">
+    <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_6FxSsETZEe2ye_2Ah03vKQ" source="org.eclipse.papyrus">
+      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_6Fx5wETZEe2ye_2Ah03vKQ" key="nature" value="UML_Nature"/>
+    </eAnnotations>
+    <ownedEnd xmi:type="uml:Property" xmi:id="_6Fx5wUTZEe2ye_2Ah03vKQ" name="game ends" type="_Np9ksETSEe2ye_2Ah03vKQ" association="_6FwroETZEe2ye_2Ah03vKQ"/>
+    <ownedEnd xmi:type="uml:Property" xmi:id="_6Fx5wkTZEe2ye_2Ah03vKQ" name="existing user" type="_x4MxIETVEe2ye_2Ah03vKQ" association="_6FwroETZEe2ye_2Ah03vKQ"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Association" xmi:id="_ChNN8ETaEe2ye_2Ah03vKQ" memberEnd="_ChOcEUTaEe2ye_2Ah03vKQ _ChOcEkTaEe2ye_2Ah03vKQ">
+    <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_ChN1AETaEe2ye_2Ah03vKQ" source="org.eclipse.papyrus">
+      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_ChOcEETaEe2ye_2Ah03vKQ" key="nature" value="UML_Nature"/>
+    </eAnnotations>
+    <ownedEnd xmi:type="uml:Property" xmi:id="_ChOcEUTaEe2ye_2Ah03vKQ" name="user loses" type="_TA-FoETSEe2ye_2Ah03vKQ" association="_ChNN8ETaEe2ye_2Ah03vKQ"/>
+    <ownedEnd xmi:type="uml:Property" xmi:id="_ChOcEkTaEe2ye_2Ah03vKQ" name="existing user" type="_x4MxIETVEe2ye_2Ah03vKQ" association="_ChNN8ETaEe2ye_2Ah03vKQ"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Association" xmi:id="_DfI10ETaEe2ye_2Ah03vKQ" memberEnd="_DfKrAkTaEe2ye_2Ah03vKQ _DfKrA0TaEe2ye_2Ah03vKQ">
+    <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_DfKrAETaEe2ye_2Ah03vKQ" source="org.eclipse.papyrus">
+      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_DfKrAUTaEe2ye_2Ah03vKQ" key="nature" value="UML_Nature"/>
+    </eAnnotations>
+    <ownedEnd xmi:type="uml:Property" xmi:id="_DfKrAkTaEe2ye_2Ah03vKQ" name="user wins" type="_b_anUETSEe2ye_2Ah03vKQ" association="_DfI10ETaEe2ye_2Ah03vKQ"/>
+    <ownedEnd xmi:type="uml:Property" xmi:id="_DfKrA0TaEe2ye_2Ah03vKQ" name="existing user" type="_x4MxIETVEe2ye_2Ah03vKQ" association="_DfI10ETaEe2ye_2Ah03vKQ"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Association" xmi:id="_FmPFMETaEe2ye_2Ah03vKQ" memberEnd="_FmQTUkTaEe2ye_2Ah03vKQ _FmQTU0TaEe2ye_2Ah03vKQ">
+    <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_FmQTUETaEe2ye_2Ah03vKQ" source="org.eclipse.papyrus">
+      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_FmQTUUTaEe2ye_2Ah03vKQ" key="nature" value="UML_Nature"/>
+    </eAnnotations>
+    <ownedEnd xmi:type="uml:Property" xmi:id="_FmQTUkTaEe2ye_2Ah03vKQ" name="user logs" type="_j5YNMETSEe2ye_2Ah03vKQ" association="_FmPFMETaEe2ye_2Ah03vKQ"/>
+    <ownedEnd xmi:type="uml:Property" xmi:id="_FmQTU0TaEe2ye_2Ah03vKQ" name="existing user" type="_x4MxIETVEe2ye_2Ah03vKQ" association="_FmPFMETaEe2ye_2Ah03vKQ"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Association" xmi:id="_MFluQETaEe2ye_2Ah03vKQ" memberEnd="_MFnjcETaEe2ye_2Ah03vKQ _MFnjcUTaEe2ye_2Ah03vKQ">
+    <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_MFm8YETaEe2ye_2Ah03vKQ" source="org.eclipse.papyrus">
+      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_MFm8YUTaEe2ye_2Ah03vKQ" key="nature" value="UML_Nature"/>
+    </eAnnotations>
+    <ownedEnd xmi:type="uml:Property" xmi:id="_MFnjcETaEe2ye_2Ah03vKQ" name="username availability check" type="_of5-UETQEe2ye_2Ah03vKQ" association="_MFluQETaEe2ye_2Ah03vKQ"/>
+    <ownedEnd xmi:type="uml:Property" xmi:id="_MFnjcUTaEe2ye_2Ah03vKQ" name="new user" type="_YGKhcERcEe2ye_2Ah03vKQ" association="_MFluQETaEe2ye_2Ah03vKQ"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Association" xmi:id="_OC2FIETaEe2ye_2Ah03vKQ" memberEnd="_OC5vgUTaEe2ye_2Ah03vKQ _OC5vgkTaEe2ye_2Ah03vKQ">
+    <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_OC5IcETaEe2ye_2Ah03vKQ" source="org.eclipse.papyrus">
+      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_OC5vgETaEe2ye_2Ah03vKQ" key="nature" value="UML_Nature"/>
+    </eAnnotations>
+    <ownedEnd xmi:type="uml:Property" xmi:id="_OC5vgUTaEe2ye_2Ah03vKQ" name="username is not available" type="_tdlZQETQEe2ye_2Ah03vKQ" association="_OC2FIETaEe2ye_2Ah03vKQ"/>
+    <ownedEnd xmi:type="uml:Property" xmi:id="_OC5vgkTaEe2ye_2Ah03vKQ" name="new user" type="_YGKhcERcEe2ye_2Ah03vKQ" association="_OC2FIETaEe2ye_2Ah03vKQ"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Association" xmi:id="_PbqSMETaEe2ye_2Ah03vKQ" memberEnd="_PbrgUkTaEe2ye_2Ah03vKQ _PbrgU0TaEe2ye_2Ah03vKQ">
+    <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_PbrgUETaEe2ye_2Ah03vKQ" source="org.eclipse.papyrus">
+      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_PbrgUUTaEe2ye_2Ah03vKQ" key="nature" value="UML_Nature"/>
+    </eAnnotations>
+    <ownedEnd xmi:type="uml:Property" xmi:id="_PbrgUkTaEe2ye_2Ah03vKQ" name="sign-up successful" type="_8su_0ETXEe2ye_2Ah03vKQ" association="_PbqSMETaEe2ye_2Ah03vKQ"/>
+    <ownedEnd xmi:type="uml:Property" xmi:id="_PbrgU0TaEe2ye_2Ah03vKQ" name="new user" type="_YGKhcERcEe2ye_2Ah03vKQ" association="_PbqSMETaEe2ye_2Ah03vKQ"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Association" xmi:id="_QqYIEETaEe2ye_2Ah03vKQ" memberEnd="_QqjHMETaEe2ye_2Ah03vKQ _QqjuQETaEe2ye_2Ah03vKQ">
+    <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_Qqfc0ETaEe2ye_2Ah03vKQ" source="org.eclipse.papyrus">
+      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_QqhSAETaEe2ye_2Ah03vKQ" key="nature" value="UML_Nature"/>
+    </eAnnotations>
+    <ownedEnd xmi:type="uml:Property" xmi:id="_QqjHMETaEe2ye_2Ah03vKQ" name="login successful" type="_vZdy8ETXEe2ye_2Ah03vKQ" association="_QqYIEETaEe2ye_2Ah03vKQ"/>
+    <ownedEnd xmi:type="uml:Property" xmi:id="_QqjuQETaEe2ye_2Ah03vKQ" name="new user" type="_YGKhcERcEe2ye_2Ah03vKQ" association="_QqYIEETaEe2ye_2Ah03vKQ"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Association" xmi:id="_VQcUQETaEe2ye_2Ah03vKQ" memberEnd="_VQhz0ETaEe2ye_2Ah03vKQ _VQk3IETaEe2ye_2Ah03vKQ">
+    <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_VQewgETaEe2ye_2Ah03vKQ" source="org.eclipse.papyrus">
+      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_VQhMwETaEe2ye_2Ah03vKQ" key="nature" value="UML_Nature"/>
+    </eAnnotations>
+    <ownedEnd xmi:type="uml:Property" xmi:id="_VQhz0ETaEe2ye_2Ah03vKQ" name="find game" type="_anMFkETREe2ye_2Ah03vKQ" association="_VQcUQETaEe2ye_2Ah03vKQ"/>
+    <ownedEnd xmi:type="uml:Property" xmi:id="_VQk3IETaEe2ye_2Ah03vKQ" name="new user" type="_YGKhcERcEe2ye_2Ah03vKQ" association="_VQcUQETaEe2ye_2Ah03vKQ"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Association" xmi:id="_XVeuIETaEe2ye_2Ah03vKQ" memberEnd="_XVhxckTaEe2ye_2Ah03vKQ _XVhxc0TaEe2ye_2Ah03vKQ">
+    <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_XVhxcETaEe2ye_2Ah03vKQ" source="org.eclipse.papyrus">
+      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_XVhxcUTaEe2ye_2Ah03vKQ" key="nature" value="UML_Nature"/>
+    </eAnnotations>
+    <ownedEnd xmi:type="uml:Property" xmi:id="_XVhxckTaEe2ye_2Ah03vKQ" name="start game" type="_gQKgQETREe2ye_2Ah03vKQ" association="_XVeuIETaEe2ye_2Ah03vKQ"/>
+    <ownedEnd xmi:type="uml:Property" xmi:id="_XVhxc0TaEe2ye_2Ah03vKQ" type="_QqYIEETaEe2ye_2Ah03vKQ" association="_XVeuIETaEe2ye_2Ah03vKQ"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Association" xmi:id="_aB8UYETaEe2ye_2Ah03vKQ" memberEnd="_aB_-wkTaEe2ye_2Ah03vKQ _aB_-w0TaEe2ye_2Ah03vKQ">
+    <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_aB_-wETaEe2ye_2Ah03vKQ" source="org.eclipse.papyrus">
+      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_aB_-wUTaEe2ye_2Ah03vKQ" key="nature" value="UML_Nature"/>
+    </eAnnotations>
+    <ownedEnd xmi:type="uml:Property" xmi:id="_aB_-wkTaEe2ye_2Ah03vKQ" name="user presses wasd" type="_pZcY8ETREe2ye_2Ah03vKQ" association="_aB8UYETaEe2ye_2Ah03vKQ"/>
+    <ownedEnd xmi:type="uml:Property" xmi:id="_aB_-w0TaEe2ye_2Ah03vKQ" name="new user" type="_YGKhcERcEe2ye_2Ah03vKQ" association="_aB8UYETaEe2ye_2Ah03vKQ"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Association" xmi:id="_dSBlEETaEe2ye_2Ah03vKQ" memberEnd="_dSL9IETaEe2ye_2Ah03vKQ _dSMkMETaEe2ye_2Ah03vKQ">
+    <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_dSJg4ETaEe2ye_2Ah03vKQ" source="org.eclipse.papyrus">
+      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_dSKvAETaEe2ye_2Ah03vKQ" key="nature" value="UML_Nature"/>
+    </eAnnotations>
+    <ownedEnd xmi:type="uml:Property" xmi:id="_dSL9IETaEe2ye_2Ah03vKQ" name="user snake scores point" type="_HdSnEETSEe2ye_2Ah03vKQ" association="_dSBlEETaEe2ye_2Ah03vKQ"/>
+    <ownedEnd xmi:type="uml:Property" xmi:id="_dSMkMETaEe2ye_2Ah03vKQ" name="new user" type="_YGKhcERcEe2ye_2Ah03vKQ" association="_dSBlEETaEe2ye_2Ah03vKQ"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Association" xmi:id="_jZJ7YETaEe2ye_2Ah03vKQ" memberEnd="_jZLJgkTaEe2ye_2Ah03vKQ _jZLJg0TaEe2ye_2Ah03vKQ">
+    <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_jZLJgETaEe2ye_2Ah03vKQ" source="org.eclipse.papyrus">
+      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_jZLJgUTaEe2ye_2Ah03vKQ" key="nature" value="UML_Nature"/>
+    </eAnnotations>
+    <ownedEnd xmi:type="uml:Property" xmi:id="_jZLJgkTaEe2ye_2Ah03vKQ" name="game ends" type="_Np9ksETSEe2ye_2Ah03vKQ" association="_jZJ7YETaEe2ye_2Ah03vKQ"/>
+    <ownedEnd xmi:type="uml:Property" xmi:id="_jZLJg0TaEe2ye_2Ah03vKQ" name="new user" type="_YGKhcERcEe2ye_2Ah03vKQ" association="_jZJ7YETaEe2ye_2Ah03vKQ"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Association" xmi:id="_njgb8ETaEe2ye_2Ah03vKQ" memberEnd="_njhqEETaEe2ye_2Ah03vKQ _njhqEUTaEe2ye_2Ah03vKQ">
+    <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_njhDAETaEe2ye_2Ah03vKQ" source="org.eclipse.papyrus">
+      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_njhDAUTaEe2ye_2Ah03vKQ" key="nature" value="UML_Nature"/>
+    </eAnnotations>
+    <ownedEnd xmi:type="uml:Property" xmi:id="_njhqEETaEe2ye_2Ah03vKQ" name="user wins" type="_b_anUETSEe2ye_2Ah03vKQ" association="_njgb8ETaEe2ye_2Ah03vKQ"/>
+    <ownedEnd xmi:type="uml:Property" xmi:id="_njhqEUTaEe2ye_2Ah03vKQ" name="new user" type="_YGKhcERcEe2ye_2Ah03vKQ" association="_njgb8ETaEe2ye_2Ah03vKQ"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Association" xmi:id="_qSS9cETaEe2ye_2Ah03vKQ" memberEnd="_qSVZsUTaEe2ye_2Ah03vKQ _qSXO4ETaEe2ye_2Ah03vKQ">
+    <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_qSUyoETaEe2ye_2Ah03vKQ" source="org.eclipse.papyrus">
+      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_qSVZsETaEe2ye_2Ah03vKQ" key="nature" value="UML_Nature"/>
+    </eAnnotations>
+    <ownedEnd xmi:type="uml:Property" xmi:id="_qSVZsUTaEe2ye_2Ah03vKQ" name="user loses" type="_TA-FoETSEe2ye_2Ah03vKQ" association="_qSS9cETaEe2ye_2Ah03vKQ"/>
+    <ownedEnd xmi:type="uml:Property" xmi:id="_qSXO4ETaEe2ye_2Ah03vKQ" name="new user" type="_YGKhcERcEe2ye_2Ah03vKQ" association="_qSS9cETaEe2ye_2Ah03vKQ"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Association" xmi:id="_tPhjkETaEe2ye_2Ah03vKQ" memberEnd="_tPixsUTaEe2ye_2Ah03vKQ _tPixskTaEe2ye_2Ah03vKQ">
+    <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_tPiKoETaEe2ye_2Ah03vKQ" source="org.eclipse.papyrus">
+      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_tPixsETaEe2ye_2Ah03vKQ" key="nature" value="UML_Nature"/>
+    </eAnnotations>
+    <ownedEnd xmi:type="uml:Property" xmi:id="_tPixsUTaEe2ye_2Ah03vKQ" name="user logs" type="_j5YNMETSEe2ye_2Ah03vKQ" association="_tPhjkETaEe2ye_2Ah03vKQ"/>
+    <ownedEnd xmi:type="uml:Property" xmi:id="_tPixskTaEe2ye_2Ah03vKQ" name="new user" type="_YGKhcERcEe2ye_2Ah03vKQ" association="_tPhjkETaEe2ye_2Ah03vKQ"/>
+  </packagedElement>
+</uml:Model>
