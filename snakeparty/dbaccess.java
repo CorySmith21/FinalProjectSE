@@ -5,6 +5,7 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JPanel;
 import javax.swing.JPasswordField;
@@ -28,7 +29,70 @@ import java.awt.event.ActionEvent;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 public class dbaccess extends JFrame {
-	public dbaccess() {
+
+    private static final String username = "root";
+    private static final String password = "Tester";
+    private static final String dataConn = "jdbc:mysql://localhost:3306/snakeparty";
+    
+    Connection sqlConn = null;
+    PreparedStatement pst = null;
+    ResultSet rs = null;
+    
+    
+    int q, i, id, deleteItem;
+    private JTextField jtUsername;
+    private JPasswordField passwordField;
+    @SuppressWarnings("unchecked")
+    public void upDateDB(){
+
+    try{
+        
+        Class.forName("com.mysql.cj.jdbc.Driver"); 
+            sqlConn = DriverManager.getConnection( "jdbc:mysql://localhost:3306/snakeparty", "root", "Testerp");
+            pst = sqlConn.prepareStatement("select * from Snakeparty");
+            
+            rs = pst.executeQuery();
+            ResultSetMetaData stData = rs.getMetaData();
+            
+            q = stData.getColumnCount();
+            
+                    
+                    while(rs.next()) {
+                        Vector columnData = new Vector();
+                        
+                        
+                        for (i = 1; i <= q;i++) {
+                            columnData.add(rs.getString("Username"));
+                            columnData.add(rs.getString("Password"));
+                            
+                            
+                            
+                        
+            }
+                    
+                                
+                        
+            
+                }sqlConn.close();
+    
+
+
+    }
+    catch (Exception ex) {
+        JOptionPane.showMessageDialog(null, ex);
+        throw new IllegalStateException("Cannot connect the database!", ex);
+
+    }}
+    
+    public dbaccess() {
+	    
+	    
+	    
+	    
+	    
+	    
+	    
+	    
 		getContentPane().setLayout(null);
 		
 		JPanel panel = new JPanel();
@@ -78,40 +142,38 @@ public class dbaccess extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				
 				
-				try{
-					
-					Class.forName("com.mysql.jdbc.Driver"); 
-						sqlConn = DriverManager.getConnection(dataConn,username,password);
-						pst = sqlConn.prepareStatement("insert into snakeparty(username, password)value(?,?,?,?,?,?)");
-						
-						
-						pst.setString(1, jtUsername.getText());
-						pst.setString(2, passwordField.getText());
-						
-						
-						pst.executeUpdate();
-						Component frame = null;
-						JOptionPane.showMessageDialog(frame, "Player Added");;
-						upDateDB();
-				
-				
-				
+			    try {
+		            Class.forName("com.mysql.cj.jdbc.Driver");
+		            Connection connection = DriverManager.getConnection(
+		                    "jdbc:mysql://localhost:3306/snakeparty", "root", "Testerp"
+		            );
+		            Statement statement = connection.createStatement();
+		            
+		            ResultSet resultSet = statement.executeQuery("select * from Snakeparty");
+		           
+		            Statement stm = connection.createStatement();
+		           String usern= jtUsername.getText();
+		           String pass= passwordField.getText();
+		            String sql = "INSERT INTO Snakeparty(Username ,Password )  VALUES('"+usern+"','"+pass+"')"  ;
+		            //class5 in above queary is a table
+		            //EXECUTE STATEMENT
+		            stm.executeUpdate(sql); //here insert query apply
+		           
+		           
+		            connection.close();
+		           
+		           
+		        }catch(Exception ex){
+		            System.out.println(ex.getMessage());
+		        }
+		       
 			}
-				catch (ClassNotFoundException ex) {
-				java.util.logging.Logger.getLogger(dbaccess.class.getName()).log(java.util.logging.Level.SEVERE,
-						null, ex);
-			
-			}catch (SQLException ex) {
-				java.util.logging.Logger.getLogger(dbaccess.class.getName()).log(java.util.logging.Level.SEVERE,
-						null, ex);
-			}
-				}	
-				
 				
 				
 			
 	
 		});
+		
 		btnNewButton_1.setBounds(199, 260, 140, 29);
 		panel_1.add(btnNewButton_1);
 		
@@ -119,7 +181,7 @@ public class dbaccess extends JFrame {
 		btnDeleteAcc.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				
-				/*
+				
 				try 
 				{
 					
@@ -128,40 +190,36 @@ public class dbaccess extends JFrame {
 							"Warning",JOptionPane.YES_NO_OPTION);
 					if (deleteItem == JOptionPane.YES_OPTION) {
 					
-						Class.forName("com.mysql.jdbc.Driver"); 
-						sqlConn = DriverManager.getConnection(dataConn,username,password);
-						pst = sqlConn.prepareStatement("delete from snakeparty where Username =?");
-						
-						
-						pst.setInt(1, id);
-						pst.executeUpdate();
-						Component frame = null;
-						JOptionPane.showMessageDialog(frame, "Record updated");;
-						upDateDB();
-						
-						jtUsername.setText("");
-						passwordField.setText("");
-						
-				
-				
-				
-			}}
-				catch (ClassNotFoundException ex) {
-				java.util.logging.Logger.getLogger(testdb.class.getName()).log(java.util.logging.Level.SEVERE,
-						null, ex);
-			
-			}catch (SQLException ex) {
-				System.err.println(ex);
-				
-						
-			}
-					}
-				
-				*/
-				
-				
-			}
-		});
+					    Class.forName("com.mysql.cj.jdbc.Driver");
+	                    Connection connection = DriverManager.getConnection(
+	                            "jdbc:mysql://localhost:3306/snakeparty", "root", "Testerp"
+	                    );
+	                    Statement statement = connection.createStatement();
+	                    
+	                    ResultSet resultSet = statement.executeQuery("select * from Snakeparty");
+	                   
+	                    Statement stm = connection.createStatement();
+	                   String usern= jtUsername.getText();
+	                   String pass= passwordField.getText();
+	                    String sql = "DELETE FROM Snakeparty WHERE Username= '"+usern+"'"  ;
+	                    
+	                    //EXECUTE STATEMENT
+	                    stm.executeUpdate(sql); //here insert query apply
+	                   
+	                   
+	                    connection.close();
+	                   
+	                   
+					}}catch(Exception ex){
+	                    System.out.println(ex.getMessage());
+	                }
+	               
+	            }
+	                
+	                
+	            
+	    
+	        });
 		btnDeleteAcc.setBounds(199, 289, 140, 29);
 		panel_1.add(btnDeleteAcc);
 		
@@ -178,65 +236,15 @@ public class dbaccess extends JFrame {
 			});
 		btnNewButton_2.setBounds(208, 321, 117, 29);
 		panel_1.add(btnNewButton_2);
-	}
-	
-
-	private static final String username = "tester";
-	private static final String password = "testerp1";
-	private static final String dataConn = "jdbc:mysql://localhost:3306/snakeparty";
-	
-	Connection sqlConn = null;
-	PreparedStatement pst = null;
-	ResultSet rs = null;
-	
-	
-	int q, i, id, deleteItem;
-	private JTextField jtUsername;
-	private JPasswordField passwordField;
-	@SuppressWarnings("unchecked")
-	public void upDateDB(){
-
-	try{
 		
-		Class.forName("com.mysql.jdbc.Driver"); 
-			sqlConn = DriverManager.getConnection(dataConn,username,password);
-			pst = sqlConn.prepareStatement("select * from snakeparty");
-			
-			rs = pst.executeQuery();
-			ResultSetMetaData stData = rs.getMetaData();
-			
-			q = stData.getColumnCount();
-			
-					
-					while(rs.next()) {
-						Vector columnData = new Vector();
-						
-						
-						for (i = 1; i <= q;i++) {
-							columnData.add(rs.getString("Username"));
-							columnData.add(rs.getString("Password"));
-							
-							
-							
-						
-			}
-					
-								
-						
-			
-				}
+		JLabel lblNewLabel_2 = new JLabel("");
+        lblNewLabel_2.setIcon(new ImageIcon("/Users/corys/workspace-papyrus/ncjdwl/Testdatabase/snaje.jpeg"));
+        lblNewLabel_2.setBounds(0, 6, 552, 370);
+        panel_1.add(lblNewLabel_2);}
 	
+    
+    
 
-
-	}
-	catch (Exception ex) {
-		JOptionPane.showMessageDialog(null, ex);
-	
-
-	}}
-	
-	
-	
 	
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
@@ -249,5 +257,5 @@ public class dbaccess extends JFrame {
                 }
             }
         });
-    }
+	}
 };
