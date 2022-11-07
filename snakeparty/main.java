@@ -1,10 +1,10 @@
 package snakeparty;
 
 public class main {
-	
-	//Hello
+
+	// Hello
 	// This is Miguel's changes
 
 }
-
-	//Comment
+// sup bud
+// Comment
