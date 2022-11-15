@@ -30,12 +30,12 @@ import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 public class dbaccess extends JFrame {
 
-    private static final String username = "root";
+  
+    
+    private static final
+     String username = "root";
     private static final String password = "Tester";
     private static final String dataConn = "jdbc:mysql://localhost:3306/snakeparty";
-    
-    Connection sqlConn = null;
-    PreparedStatement pst = null;
     ResultSet rs = null;
     
     
@@ -43,6 +43,8 @@ public class dbaccess extends JFrame {
     private JTextField jtUsername;
     private JPasswordField passwordField;
     @SuppressWarnings("unchecked")
+    Connection sqlConn = null;
+    PreparedStatement pst = null;
     public void upDateDB(){
 
     try{
