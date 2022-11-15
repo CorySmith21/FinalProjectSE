@@ -23,8 +23,9 @@ import java.awt.event.ActionEvent;
 
 public class CreateAccountPanel  extends JFrame {
     private JTextField jtUsername;
-    private JPasswordField passwordField;
+    private JPasswordField passwordField ;
     private JPasswordField verifypasswordField;
+   
     
     public CreateAccountPanel() {
         getContentPane().setLayout(null);
@@ -66,6 +67,7 @@ public class CreateAccountPanel  extends JFrame {
         btnNewButton.addActionListener(new ActionListener() {
             private String pass;
 
+            @SuppressWarnings("deprecation")
             public void actionPerformed(ActionEvent e) {
                 
                     
@@ -83,18 +85,12 @@ public class CreateAccountPanel  extends JFrame {
                        String usern= jtUsername.getText();
                        
                        
-                       if(passwordField.getText()== verifypasswordField.getText()) {
+                       if( passwordField.getText() == verifypasswordField.getText()) {
                         
-                           String pass= passwordField.getText();
-                       }else {
+                          String pass = passwordField.getText();
+                           System.out.println(pass);
                            
-                           JOptionPane.showMessageDialog(null,"Password Doesn't Match!" );
-                       }
-                       
-                       
-                       
-                       
-                        String sql = "INSERT INTO Snakeparty(Username ,Password )  VALUES('"+usern+"','"+pass+"')"  ;
+                           String sql = "INSERT INTO Snakeparty(Username ,Password )  VALUES('"+usern+"','"+pass+"')"  ;
                         //class5 in above queary is a table
                         //EXECUTE STATEMENT
                         stm.executeUpdate(sql); //here insert query apply
@@ -103,12 +99,23 @@ public class CreateAccountPanel  extends JFrame {
                         connection.close();
                        
                        
-                    }catch(Exception ex){
+                    
+                    
+                       }else {
+                           
+                           JOptionPane.showMessageDialog(null,"Password Doesn't Match!" );
+                       }
+                       
+                       
+                      }catch(Exception ex){
                         System.out.println(ex.getMessage());
                     }
+                       
+            
+                        
                    
                 }
-                    
+                  
                     
                 
         
