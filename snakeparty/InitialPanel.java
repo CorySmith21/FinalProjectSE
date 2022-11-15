@@ -20,10 +20,13 @@ public class InitialPanel implements ActionListener {
     private JFrame frame;
     private JButton btnLogin;
     private JButton btnCreateAccount;
+    private LoginPanel loginpanel;
+    private CreateAccountPanel createaccountpanel;
 
     public InitialPanel(JFrame frame) {
         this.frame = frame;
         this.initializePanel();
+        
     }
 
     public void initializePanel() {
@@ -68,25 +71,21 @@ public class InitialPanel implements ActionListener {
         Object source = e.getSource();
         if (source == btnLogin) {
             System.out.println("Login");
+            loginpanel = new LoginPanel();
+            loginpanel.setVisible(true);
+            loginpanel.setSize(469,420);
+           
+            
         }
         
         if (source == btnCreateAccount) {
             System.out.println("Create");
+            createaccountpanel = new CreateAccountPanel();
+            createaccountpanel.setVisible(true);
+            createaccountpanel.setSize(600,420);
         }
             
     }
 }
-//public static void main(String[] args) {
-//    EventQueue.invokeLater(new Runnable() {
-//        public void run() {
-//            try {
-//              InitialPanel frame = new InitialPanel();
-//                frame.setVisible(true);
-//            } catch (Exception e) {
-//                e.printStackTrace();
-//            }
-//        }
-//    });
-//}
-//};
+
 
