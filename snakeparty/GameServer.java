@@ -1,5 +1,7 @@
 package snakeparty;
 
+import java.io.IOException;
+
 import ocsf.server.AbstractServer;
 import ocsf.server.ConnectionToClient;
 
@@ -7,6 +9,12 @@ public class GameServer extends AbstractServer {
 
     public GameServer() {
         super(12345);
+        try {
+            this.listen();
+        } catch (IOException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
         System.out.println("server started");
     }
 
