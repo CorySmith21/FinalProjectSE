@@ -8,7 +8,6 @@ import java.awt.event.ActionListener;
 
 import javax.swing.JLabel;
 
-import java.awt.EventQueue;
 import java.awt.Font;
 import javax.swing.SwingConstants;
 import java.awt.GridBagLayout;
@@ -20,13 +19,12 @@ public class InitialPanel implements ActionListener {
     private JFrame frame;
     private JButton btnLogin;
     private JButton btnCreateAccount;
-    private LoginPanel loginpanel;
-    private CreateAccountPanel createaccountpanel;
+    private LoginPanel loginPanel;
+    private CreateAccountPanel createAccountPannel;
 
     public InitialPanel(JFrame frame) {
         this.frame = frame;
         this.initializePanel();
-        
     }
 
     public void initializePanel() {
@@ -64,27 +62,26 @@ public class InitialPanel implements ActionListener {
         gbc_btnCreateAccount.gridy = 4;
         btnCreateAccount.addActionListener(this);
         panel.add(btnCreateAccount, gbc_btnCreateAccount);
-
     }
+    
+   public void display() {
+       frame.getContentPane().removeAll();
+       frame.getContentPane().add(panel);
+       frame.validate();
+       frame.repaint();
+   }
 
     public void actionPerformed(ActionEvent e) {
         Object source = e.getSource();
         if (source == btnLogin) {
-            System.out.println("Login");
-            loginpanel = new LoginPanel();
-            loginpanel.setVisible(true);
-            loginpanel.setSize(469,420);
-           
-            
+            loginPanel = new LoginPanel(frame);
+            loginPanel.display();
         }
         
         if (source == btnCreateAccount) {
-            System.out.println("Create");
-            createaccountpanel = new CreateAccountPanel();
-            createaccountpanel.setVisible(true);
-            createaccountpanel.setSize(600,420);
-        }
-            
+            createAccountPannel = new CreateAccountPanel(frame);
+            createAccountPannel.display();
+        }  
     }
 }
 
