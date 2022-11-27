@@ -1,10 +1,33 @@
 package snakeparty;
 
-public class GamePanel {
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
-    public static void main(String[] args) {
-        // TODO Auto-generated method stub
+import javax.swing.JFrame;
+import javax.swing.JPanel;
 
-    }
+public class GamePanel implements ActionListener {
+    private JPanel panel = new JPanel();
+   private JFrame frame;
+   
+  public GamePanel (JFrame frame) {
+      this.frame = frame;
+      this.initializePanel();
+  }
+  
+  public void initializePanel() {
+      
+  }
+  
+  public void display() {
+      frame.getContentPane().removeAll();
+      frame.getContentPane().add(panel);
+      frame.validate();
+      frame.repaint();
+  }
 
+   public void actionPerformed(ActionEvent e) {
+       Object source = e.getSource();
+       return;
+   }
 }
