@@ -1,5 +1,7 @@
 package snakeparty;
 
+import java.io.IOException;
+
 import javax.swing.JFrame;
 import ocsf.client.AbstractClient;
 
@@ -8,16 +10,26 @@ import ocsf.client.AbstractClient;
 
 public class GameClient extends AbstractClient {
     private JFrame frame = new JFrame();
-    @SuppressWarnings("unused")
     private InitialPanel initialPanel;
 
     public GameClient() {
-        super("127.0.0.1", 12345);
+        super("localhost", 8300);
         frame.setVisible(true);
         frame.setSize(469, 420);
         frame.setResizable(true);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        initialPanel = new InitialPanel(frame);
+        initialPanel = new InitialPanel(frame, this);
+        initialPanel.display();
+        this.check();
+    }
+    
+    public void check() {
+        try {
+            this.openConnection();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        System.out.println(isConnected());
     }
 
     public void connectionEstablished() {

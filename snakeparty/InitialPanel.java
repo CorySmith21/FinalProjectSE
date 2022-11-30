@@ -10,6 +10,9 @@ import javax.swing.JLabel;
 
 import java.awt.Font;
 import javax.swing.SwingConstants;
+
+import ocsf.client.AbstractClient;
+
 import java.awt.GridBagLayout;
 import java.awt.GridBagConstraints;
 import java.awt.Insets;
@@ -17,13 +20,15 @@ import java.awt.Insets;
 public class InitialPanel implements ActionListener {
     private JPanel panel = new JPanel();
     private JFrame frame;
+    private AbstractClient client;
     private JButton btnLogin;
     private JButton btnCreateAccount;
     private LoginPanel loginPanel;
     private CreateAccountPanel createAccountPannel;
 
-    public InitialPanel(JFrame frame) {
+    public InitialPanel(JFrame frame, AbstractClient client) {
         this.frame = frame;
+        this.client = client;
         this.initializePanel();
     }
 
@@ -36,7 +41,7 @@ public class InitialPanel implements ActionListener {
         gbl_panel.rowWeights = new double[] { 0.0, 0.0, 0.0, 0.0, 0.0, Double.MIN_VALUE };
         panel.setLayout(gbl_panel);
 
-        JLabel lblNewLabel = new JLabel("Snake Party");
+        JLabel lblNewLabel = new JLabel("Snake Party!");
         lblNewLabel.setHorizontalAlignment(SwingConstants.CENTER);
         lblNewLabel.setFont(new Font("Papyrus", Font.ITALIC, 32));
         GridBagConstraints gbc_lblNewLabel = new GridBagConstraints();
@@ -74,7 +79,7 @@ public class InitialPanel implements ActionListener {
     public void actionPerformed(ActionEvent e) {
         Object source = e.getSource();
         if (source == btnLogin) {
-            loginPanel = new LoginPanel(frame);
+            loginPanel = new LoginPanel(frame, client);
             loginPanel.display();
         }
         

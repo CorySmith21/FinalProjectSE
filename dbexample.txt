@@ -1,0 +1,112 @@
+package lab7out;
+
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.util.ArrayList;
+import java.util.Properties;
+
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.sql.ResultSet;
+
+public class Database {
+	private Connection driver;
+
+	public Database(String propertiesLocation) {
+		try (InputStream config = new FileInputStream(propertiesLocation)) {
+			Properties properties = new Properties();
+			properties.load(config);
+			
+//			System.out.println(properties.getProperty("url") + "?autoReconnect=true&useSSL=false");
+
+			String url = properties.getProperty("url") + "?autoReconnect=true&useSSL=false";
+			String username = properties.getProperty("user");
+			String password = properties.getProperty("password");
+
+			try {
+				driver = DriverManager.getConnection(url, username, password);
+				System.out.println("Connection to db established....");
+			} catch (SQLException ex) {
+				System.out.println("Connection to db failed :( ....");
+				ex.printStackTrace();
+				return;
+			}
+
+		} catch (IOException ex) {
+			ex.printStackTrace();
+			return;
+		}
+	}
+	
+	public boolean verifyAccount(String username, String password) {
+		String queryString = String.format("select * from users where username = \"%s\"; ", username);
+		
+		System.out.println(queryString);
+		ArrayList<LoginData> results = query(queryString);
+		
+		if (results.size() > 0) {
+			String enteredPassword = String.format("%d", password.hashCode());
+			String storedPassword =  results.get(0).getPassword();
+			System.out.println(enteredPassword.equals(storedPassword));
+			
+			if (enteredPassword.equals(storedPassword)) {
+				return true;
+			} else {
+				return false;
+			}
+		} else {
+			return false;
+		}
+	}
+	
+	public boolean createNewAccount(String username, String password) {
+		String queryString = String.format("select * from users where username = \"%s\"; ", username);
+		ArrayList<LoginData> results = query(queryString);
+		
+		if (results.size() > 0) {
+			return false;
+		} else {
+			String encryptedPassword = String.format("%d", password.hashCode());
+			String insertString = String.format("insert into users(username, password) values (\"%s\", \"%s\");", username, encryptedPassword);
+			System.out.println(insertString);
+			executeDML(insertString);
+			return true;
+		}
+	}
+
+
+	public ArrayList<LoginData> query(String query) {
+		ArrayList<LoginData> results = new ArrayList<LoginData>();
+		try {
+			Statement statement = driver.createStatement();
+			ResultSet rs = statement.executeQuery(query);
+			while (rs.next()) {
+				String username = rs.getString("username");
+				String password = rs.getString("password");
+				LoginData user = new LoginData(username, password);
+				results.add(user);
+			}
+			
+			return results;
+		} catch (SQLException ex) {
+			ex.printStackTrace();
+		}
+		return null;
+	}
+
+	public void executeDML(String dml) {
+		try {
+			Statement statement = driver.createStatement();
+			statement.executeUpdate(dml);
+		} catch (SQLException ex) {
+			ex.printStackTrace();
+		}
+	}
+	
+	public static void main(String[] args) {
+		new Database(args[0]);
+	}
+}
