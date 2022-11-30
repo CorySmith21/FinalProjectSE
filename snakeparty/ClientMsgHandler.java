@@ -12,9 +12,9 @@ public class ClientMsgHandler {
     private Connection driver;
 
     public ClientMsgHandler() {
-        String url = "?autoReconnect=true&useSSL=false";
-        String username = "user";
-        String password = "password";
+        String url = "jdbc:mysql://localhost:3306/snakeparty";
+        String username = "root";
+        String password = "Testerp";
 
         try {
             driver = DriverManager.getConnection(url, username, password);
@@ -52,12 +52,43 @@ public class ClientMsgHandler {
         }
     }
 
-    public boolean verifyAccount(String username, String password) {
-        return true;
+    public boolean verifyAccount(LoginData loginData) {
+        String username = loginData.getUsername();
+        String password = loginData.getPassword();
+
+        String queryString = String.format("select * from Snakeparty where Username = \"%s\"; ", username);
+
+        ArrayList<LoginData> results = query(queryString);
+
+        if (results.size() > 0) {
+            String enteredPassword = String.format("%d", password.hashCode());
+            String storedPassword = results.get(0).getPassword();
+
+            if (enteredPassword.equals(storedPassword)) {
+                return true;
+            } else {
+                return false;
+            }
+        } else {
+            return false;
+        }
     }
 
     public boolean createNewAccount(String username, String password) {
-        return true;
+        String queryString = String.format("select * from Snakeparty where Username = \"%s\"; ", username);
+        ArrayList<LoginData> results = query(queryString);
+
+        if (results.size() > 0) {
+            return false;
+        } else {
+            String encryptedPassword = String.format("%d", password.hashCode());
+            String insertString = String.format("insert into Snakeparty(Username, Password) values (\"%s\", \"%s\");",
+                    username, encryptedPassword);
+            System.out.println(insertString);
+            executeDML(insertString);
+            return true;
+        }
+
     }
 
 }

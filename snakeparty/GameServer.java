@@ -8,7 +8,7 @@ import ocsf.server.AbstractServer;
 import ocsf.server.ConnectionToClient;
 
 public class GameServer extends AbstractServer {
-//    private ClientMsgHandler clientMsgHandler = new ClientMsgHandler();
+    private ClientMsgHandler clientMsgHandler = new ClientMsgHandler();
     private JTextArea log;
     private JLabel status;
     private boolean running = false;
@@ -60,6 +60,24 @@ public class GameServer extends AbstractServer {
     }
 
     public void handleMessageFromClient(Object arg0, ConnectionToClient arg1) {
+        if (arg0 instanceof LoginData) {
+            Boolean ret = clientMsgHandler.verifyAccount((snakeparty.LoginData) arg0);
+            if (ret) {
+                try {
+                    arg1.sendToClient("ok");
+                } catch (IOException e) {
+                    
+                    e.printStackTrace();
+                }
+            } else {
+                try {
+                    arg1.sendToClient(new Error());
+                } catch (IOException e) {
+                    
+                    e.printStackTrace();
+                }
+            }
+        }
         return;
     }
 

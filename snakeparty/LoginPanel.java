@@ -84,9 +84,11 @@ public class LoginPanel implements ActionListener {
             LoginData loginData = new LoginData(jtUsername.getText(), passwordField.getText());
             try {
                 client.sendToServer(loginData);
-                gamePanel = new GamePanel(frame, client);
-                gamePanel.display();
+                System.out.println("we made it");
+//                gamePanel = new GamePanel(frame, client);
+//                gamePanel.display();
             } catch (IOException e1) {
+                System.out.println("we did not make it");
                 e1.printStackTrace();
             }
             System.out.println("loging into game");
