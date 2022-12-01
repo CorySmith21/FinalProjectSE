@@ -79,45 +79,72 @@ public class ClientMsgHandler {
     public boolean createNewAccount(String username, String password) {
         
         
-        String url = "jdbc:mysql://localhost:3306/snakeparty";
-            String dusername = "root";
-            String dpassword = "Testerp";
-
-            try {
-                driver = DriverManager.getConnection(url, dusername, dpassword);
-            } catch (SQLException ex) {
-                ex.printStackTrace();
-                return false;
-            }
+       
         
-        
-        String queryString = String.format("select * from Snakeparty where Username = \"%s\"; ", username);
-        ArrayList<LoginData> results = query(queryString);
+        try {
+            Class.forName("com.mysql.cj.jdbc.Driver");
+            Connection connection = DriverManager.getConnection(
+                    "jdbc:mysql://localhost:3306/snakeparty", "root", "Testerp");
+            Statement statement = connection.createStatement();
 
-        if (results.size() > 0) {
-            return false;
-        } else {
-            
-            Statement stm = null;
-            try {
-                stm = driver.createStatement();
-            } catch (SQLException e1) {
-                // TODO Auto-generated catch block
-                e1.printStackTrace();
-            }
-            String encryptedPassword = String.format("%d", password.hashCode());
-            String insertString = "INSERT INTO Snakeparty(Username ,Password )  VALUES('" + username + "','" +  encryptedPassword + "')";
-            System.out.println(insertString);
-           // executeDML(insertString);
-            try {
-                stm.executeUpdate(insertString);
-            } catch (SQLException e) {
-                // TODO Auto-generated catch block
-                e.printStackTrace();
-            }
-            return true;
+            ResultSet resultSet = statement.executeQuery("select * from Snakeparty");
+
+            Statement stm = connection.createStatement();
+            String usern = username;
+            String pass = password;
+            String sql = "INSERT INTO Snakeparty(Username ,Password )  VALUES('" + usern + "','" + pass + "')";
+            // class5 in above queary is a table
+            // EXECUTE STATEMENT
+            stm.executeUpdate(sql); // here insert query apply
+
+            connection.close();
+
+        } catch (Exception ex) {
+            System.out.println(ex.getMessage());
         }
+        return true;
 
     }
+        
+//        String url = "jdbc:mysql://localhost:3306/snakeparty";
+//            String dusername = "root";
+//            String dpassword = "Testerp";
+//
+//            try {
+//                driver = DriverManager.getConnection(url, dusername, dpassword);
+//            } catch (SQLException ex) {
+//                ex.printStackTrace();
+//                return false;
+//            }
+//        
+//        
+//        String queryString = String.format("select * from Snakeparty where Username = \"%s\"; ", username);
+//        ArrayList<LoginData> results = query(queryString);
+//
+//        if (results.size() > 0) {
+//            return false;
+//        } else {
+//            
+//            Statement stm = null;
+//            try {
+//                stm = driver.createStatement();
+//            } catch (SQLException e1) {
+//                // TODO Auto-generated catch block
+//                e1.printStackTrace();
+//            }
+//            String encryptedPassword = String.format("%d", password.hashCode());
+//            String insertString = "INSERT INTO Snakeparty(Username ,Password )  VALUES('" + username + "','" +  encryptedPassword + "')";
+//            System.out.println(insertString);
+//           // executeDML(insertString);
+//            try {
+//                stm.executeUpdate(insertString);
+//            } catch (SQLException e) {
+//                // TODO Auto-generated catch block
+//                e.printStackTrace();
+//            }
+//            return true;
+       }
 
-}
+    
+
+
