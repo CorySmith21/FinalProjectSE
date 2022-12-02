@@ -64,23 +64,22 @@ public class GameServer extends AbstractServer {
             Boolean ret = clientMsgHandler.verifyAccount((snakeparty.LoginData) arg0);
             if (ret) {
                 try {
-                    arg1.sendToClient("ok");
+                    ServerResponse response = new ServerResponse("LoginPanel", ret);
+                    arg1.sendToClient(response);
                 } catch (IOException e) {
-                    
                     e.printStackTrace();
                 }
             } else {
                 try {
-                    arg1.sendToClient(new Error());
+                    ServerResponse response = new ServerResponse("LoginPanel", ret);
+                    arg1.sendToClient(response);
                 } catch (IOException e) {
-                    
                     e.printStackTrace();
                 }
             }
         }
         return;
     }
-
     // Method that handles listening exceptions by displaying exception information.
     public void listeningException(Throwable exception) {
         running = false;

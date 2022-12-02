@@ -57,23 +57,25 @@ public class ClientMsgHandler {
     public boolean verifyAccount(LoginData loginData) {
         String username = loginData.getUsername();
         String password = loginData.getPassword();
+        
+        return false;
 
-        String queryString = String.format("select * from Snakeparty where Username = \"%s\"; ", username);
-
-        ArrayList<LoginData> results = query(queryString);
-
-        if (results.size() > 0) {
-            String enteredPassword = String.format("%d", password.hashCode());
-            String storedPassword = results.get(0).getPassword();
-
-            if (enteredPassword.equals(storedPassword)) {
-                return true;
-            } else {
-                return false;
-            }
-        } else {
-            return false;
-        }
+//        String queryString = String.format("select * from Snakeparty where Username = \"%s\"; ", username);
+//
+//        ArrayList<LoginData> results = query(queryString);
+//
+//        if (results.size() > 0) {
+//            String enteredPassword = String.format("%d", password.hashCode());
+//            String storedPassword = results.get(0).getPassword();
+//
+//            if (enteredPassword.equals(storedPassword)) {
+//                return true;
+//            } else {
+//                return false;
+//            }
+//        } else {
+//            return false;
+//        }
     }
 
     public boolean createNewAccount(String username, String password) {

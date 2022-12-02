@@ -6,6 +6,8 @@ import javax.swing.JLabel;
 import java.awt.Font;
 import javax.swing.JTextField;
 
+import ocsf.client.AbstractClient;
+
 import javax.swing.JPasswordField;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
@@ -19,9 +21,13 @@ public class CreateAccountPanel implements ActionListener {
     private JPasswordField verifypasswordField;
     private JButton createAccountBtn;
     private JButton returnToLoginBtn;
+    private LoginPanel loginPanel;
+    private AbstractClient client;
 
-    public CreateAccountPanel(JFrame frame) {
+    public CreateAccountPanel(JFrame frame, AbstractClient client) {
         this.frame = frame;
+        this.client = client;
+        this.loginPanel = new LoginPanel(frame, client);
         this.initializePanel();
     }
 
@@ -78,18 +84,31 @@ public class CreateAccountPanel implements ActionListener {
         frame.repaint();
     }
     
+    public void success() {
+        loginPanel.display();
+    }
+    
+    public void failure() {
+        this.display();
+    }
+    
     public void actionPerformed(ActionEvent e) {
         Object source = e.getSource();
         if (source == createAccountBtn) {
-            System.out.println("creating account");
+//            CreateAccountData createAccountData = new CreateAccountData();
+//            try {
+//                client.sendToServer(createAccountData);
+//            } catch (IOException e1) {
+//                e1.printStackTrace();
+//            }
         }
         
         if (source == returnToLoginBtn) {
-            System.out.println("returning to login");
+            InitialPanel initialPanel = new InitialPanel(frame, client);
+            initialPanel.display();
         }
             
     }
-
 //    public CreateAccountPanel() {
 //        getContentPane().setLayout(null);
 //        

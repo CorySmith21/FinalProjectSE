@@ -17,3 +17,9 @@
 /LoginData.class
 /GameServerGui$EventHandler.class
 /GameServerGui.class
+/ClientMsgHandler.class
+/ServerResponse.class
+/CreateAccountData.class
+/GamePanel$TAdapter.class
+/GameView.class
+/GameView$TAdapter.class

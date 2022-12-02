@@ -84,7 +84,7 @@ public class InitialPanel implements ActionListener {
         }
         
         if (source == btnCreateAccount) {
-            createAccountPannel = new CreateAccountPanel(frame);
+            createAccountPannel = new CreateAccountPanel(frame, client);
             createAccountPannel.display();
         }  
     }

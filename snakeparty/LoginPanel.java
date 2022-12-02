@@ -29,6 +29,7 @@ public class LoginPanel implements ActionListener {
     public LoginPanel(JFrame frame, AbstractClient client) {
         this.frame = frame;
         this.client = client;
+        this.gamePanel = new GamePanel(frame, client);
         this.initializePanel();
     }
 
@@ -70,6 +71,14 @@ public class LoginPanel implements ActionListener {
 
     }
 
+    public void success() {
+        gamePanel.display();
+    }
+    
+    public void failure() {
+        this.display();
+    }
+
     public void display() {
         frame.getContentPane().removeAll();
         frame.getContentPane().add(panel);
@@ -84,18 +93,14 @@ public class LoginPanel implements ActionListener {
             LoginData loginData = new LoginData(jtUsername.getText(), passwordField.getText());
             try {
                 client.sendToServer(loginData);
-                System.out.println("we made it");
-//                gamePanel = new GamePanel(frame, client);
-//                gamePanel.display();
             } catch (IOException e1) {
-                System.out.println("we did not make it");
                 e1.printStackTrace();
             }
-            System.out.println("loging into game");
         }
 
         if (source == returnToLoginBtn) {
-            System.out.println("returning to login");
+            InitialPanel initialPanel = new InitialPanel(frame, client);
+            initialPanel.display();
         }
     }
 }

@@ -22,7 +22,7 @@ public class GameClient extends AbstractClient {
         initialPanel.display();
         this.check();
     }
-    
+
     public void check() {
         try {
             this.openConnection();
@@ -33,18 +33,40 @@ public class GameClient extends AbstractClient {
     }
 
     public void connectionEstablished() {
-        System.out.println("We're up baby!");
+//        System.out.println("We're up baby!");
     }
 
-    public void handleMessageFromServer(Object arg0) {
-        System.out.println("Server is trying to tell us something...");
+    protected void handleMessageFromServer(Object arg0) {
+
+        if (arg0 instanceof ServerResponse) {
+            if (((ServerResponse) arg0).getTargetPanel().equals("LoginPanel")) {
+                LoginPanel loginPanel = new LoginPanel(frame, this);
+                if (((ServerResponse) arg0).getStatus().equals(true)) {
+                    loginPanel.success();
+                }
+                if (((ServerResponse) arg0).getStatus().equals(false)) {
+                    loginPanel.failure();
+                }
+
+            }
+            if (((ServerResponse) arg0).getTargetPanel().equals("CreateAccountPanel")) {
+               // CreateAccountPanel createAccountPanel = new CreateAccountPanel(frame, this);
+                if (((ServerResponse) arg0).getStatus().equals(true)) {
+                    // createAccountPanel.success()
+                }
+                if (((ServerResponse) arg0).getStatus().equals(false)) {
+                    // createAccountPanel.failure()
+                }
+            }
+        }
     }
 
     public void connectionClosed() {
-        System.out.println("Time to shut her down...");
+//        System.out.println("Time to shut her down...");
     }
 
     public static void main(String[] args) {
         new GameClient();
     }
+
 }

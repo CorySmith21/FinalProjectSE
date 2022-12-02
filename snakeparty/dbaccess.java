@@ -114,40 +114,7 @@ public class dbaccess extends JFrame {
         btnNewButton_1.addActionListener(new ActionListener() {
             @SuppressWarnings("deprecation")
             public void actionPerformed(ActionEvent e) {
-                try {
-                    Class.forName("com.mysql.cj.jdbc.Driver");
-                } catch (ClassNotFoundException e1) {
-                    // TODO Auto-generated catch block
-                    e1.printStackTrace();
-                }
-                try {
-                    sqlConn = DriverManager.getConnection("jdbc:mysql://localhost:3306/snakeparty", "root", "Testerp");
-                } catch (SQLException e2) {
-                    // TODO Auto-generated catch block
-                    e2.printStackTrace();
-                }
-                try {
-                    pst = sqlConn.prepareStatement("select * from Snakeparty");
-                } catch (SQLException e1) {
-                    // TODO Auto-generated catch block
-                    e1.printStackTrace();
-                }
-                
-                
-                
-                String query = "SELECT * FROM Snakeparty WHERE Username=" +"\""+jtUsername+"\""+";";  //get username
-                try {
-              Statement stmt =  sqlConn.prepareStatement(query);
-              ResultSet rs = stmt.executeQuery(query) ;
-              if(rs != null) {
-                  ResultSetMetaData stData = rs.getMetaData();
 
-                  q = stData.getColumnCount();
-                  System.out.print(rs);
-                  System.out.print(stData);
-                  System.out.print(q);
-                System.out.println("Username is taken");
-              }else {
                 try {
                     Class.forName("com.mysql.cj.jdbc.Driver");
                     Connection connection = DriverManager.getConnection(
@@ -159,25 +126,79 @@ public class dbaccess extends JFrame {
                     Statement stm = connection.createStatement();
                     String usern = jtUsername.getText();
                     String pass = passwordField.getText();
-                    String sql = "INSERT INTO Snakeparty(Username ,Password )  VALUES('" + usern + "','" + pass + "')";
-                    // class5 in above queary is a table
-                    // EXECUTE STATEMENT
-                    stm.executeUpdate(sql); // here insert query apply
+                    String f = usern, s = pass;
 
-                    connection.close();
+                    String queryString = "SELECT * FROM Snakeparty WHERE Username = '" + usern + "';";
+                    ResultSet results = stm.executeQuery(queryString);
 
+                    while (results.next()) {
+                        String username = results.getString("Username");
+                        // String password = results.getString(""+ pass +"");
+
+                        if ((f.equals(username))) {
+                            System.out.println("stuck here");
+                            JOptionPane.showMessageDialog(null, "Username  exist");
+                       }if (!f.equals(username))
+                        {
+                                System.out.print("Stuck here not null");
+                            String sql = "INSERT INTO Snakeparty(Username ,Password )  VALUES('" + usern + "','" + pass
+                                    + "')";
+                            // class5 in above queary is a table
+                            // EXECUTE STATEMENT
+                            stm.executeUpdate(sql); // here insert query apply
+
+                            connection.close();
+                        }
+                    }
                 } catch (Exception ex) {
                     System.out.println(ex.getMessage());
                 }
-              }
-              
-              }catch (Exception ex) {
-                  JOptionPane.showMessageDialog(null, ex);
-                  throw new IllegalStateException("Cannot connect the database!", ex);
 
-              } }})
+//                String query = "SELECT * FROM Snakeparty WHERE Username=" +"\""+jtUsername+"\""+";";  //get username
+//                try {
+//              Statement stmt =  sqlConn.prepareStatement(query);
+//              ResultSet rs = stmt.executeQuery(query) ;
+//              if(rs != null) {
+//                  ResultSetMetaData stData = rs.getMetaData();
+//
+//                  q = stData.getColumnCount();
+//                  System.out.print(rs);
+//                  System.out.print(stData);
+//                  System.out.print(q);
+//                System.out.println("Username is taken");
+//              }else {
+//                try {
+//                    Class.forName("com.mysql.cj.jdbc.Driver");
+//                    Connection connection = DriverManager.getConnection(
+//                            "jdbc:mysql://localhost:3306/snakeparty", "root", "Testerp");
+//                    Statement statement = connection.createStatement();
+//
+//                    ResultSet resultSet = statement.executeQuery("select * from Snakeparty");
+//
+//                    Statement stm = connection.createStatement();
+//                    String usern = jtUsername.getText();
+//                    String pass = passwordField.getText();
+//                    String sql = "INSERT INTO Snakeparty(Username ,Password )  VALUES('" + usern + "','" + pass + "')";
+//                    // class5 in above queary is a table
+//                    // EXECUTE STATEMENT
+//                    stm.executeUpdate(sql); // here insert query apply
+//
+//                    connection.close();
+//
+//                } catch (Exception ex) {
+//                    System.out.println(ex.getMessage());
+//                }
+//              }
+//              
+//              }catch (Exception ex) {
+//                  JOptionPane.showMessageDialog(null, ex);
+//                  throw new IllegalStateException("Cannot connect the database!", ex);
 
-            ;
+                // }
+            }
+        })
+
+        ;
 
         btnNewButton_1.setBounds(199, 260, 140, 29);
         panel_1.add(btnNewButton_1);
@@ -247,7 +268,7 @@ public class dbaccess extends JFrame {
                 try {
                     dbaccess frame = new dbaccess();
                     frame.setVisible(true);
-                    frame.setSize(600,600);
+                    frame.setSize(600, 600);
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
