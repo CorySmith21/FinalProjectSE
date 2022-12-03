@@ -138,7 +138,7 @@ public class dbaccess extends JFrame {
                         if ((f.equals(username))) {
                             System.out.println("stuck here");
                             JOptionPane.showMessageDialog(null, "Username  exist");
-                       }if (!f.equals(username))
+                       }else 
                         {
                                 System.out.print("Stuck here not null");
                             String sql = "INSERT INTO Snakeparty(Username ,Password )  VALUES('" + usern + "','" + pass

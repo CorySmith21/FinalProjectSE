@@ -8,6 +8,8 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 
+import javax.swing.JOptionPane;
+
 public class ClientMsgHandler {
     private Connection driver;
 
@@ -78,9 +80,9 @@ public class ClientMsgHandler {
 //        }
     }
 
-    public boolean createNewAccount(String username, String password) {
-        
-        
+    public boolean createNewAccount(CreateAccountData createAccountData) {
+        String username = createAccountData.getUsername();
+        String password = createAccountData.getPassword();
        
         
         try {
@@ -103,11 +105,27 @@ public class ClientMsgHandler {
 
         } catch (Exception ex) {
             System.out.println(ex.getMessage());
+            
+            String look = "Duplicate entry";
+            boolean val = ex.getMessage().contains(look);
+            if(val) {
+                System.out.println("String found: "+look);
+                JOptionPane.showMessageDialog(null, "Username  exist");
+               
+            }
+            
+            else 
+              System.out.println("string not found");
         }
-        return true;
+        return false;
+                
+        
+            
+      
 
     }
-        
+
+}
 //        String url = "jdbc:mysql://localhost:3306/snakeparty";
 //            String dusername = "root";
 //            String dpassword = "Testerp";
@@ -145,7 +163,7 @@ public class ClientMsgHandler {
 //                e.printStackTrace();
 //            }
 //            return true;
-       }
+       
 
     
 
