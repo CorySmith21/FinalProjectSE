@@ -13,6 +13,9 @@ import java.awt.Color;
 import java.awt.EventQueue;
 
 import javax.swing.border.BevelBorder;
+
+import ocsf.client.AbstractClient;
+
 import java.awt.Font;
 
 import java.awt.event.ActionListener;
@@ -25,7 +28,10 @@ public class dbaccess extends JFrame {
     private static final String password = "Testerp";
     private static final String dataConn = "jdbc:mysql://localhost:3306/snakeparty";
     ResultSet rs = null;
-
+    private JPanel panel = new JPanel();
+    private JFrame frame;
+    private AbstractClient client;
+    private GamePanel gamePanel;
     int q, i, id, deleteItem;
     private JTextField jtUsername;
     private JPasswordField passwordField;
@@ -64,6 +70,12 @@ public class dbaccess extends JFrame {
 
         }
     }
+    public void display() {
+        frame.getContentPane().removeAll();
+        frame.getContentPane().add(panel);
+        frame.validate();
+        frame.repaint();
+    }
 
     public dbaccess() {
 
@@ -101,20 +113,15 @@ public class dbaccess extends JFrame {
         passwordField = new JPasswordField();
         passwordField.setBounds(178, 153, 266, 27);
         panel_1.add(passwordField);
+        
+        
+        
 
         JButton btnNewButton = new JButton("Login");
         btnNewButton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-            }
-        });
-        btnNewButton.setBounds(208, 229, 117, 29);
-        panel_1.add(btnNewButton);
-
-        JButton btnNewButton_1 = new JButton("Create Account");
-        btnNewButton_1.addActionListener(new ActionListener() {
-            @SuppressWarnings("deprecation")
-            public void actionPerformed(ActionEvent e) {
-
+                
+                
                 try {
                     Class.forName("com.mysql.cj.jdbc.Driver");
                     Connection connection = DriverManager.getConnection(
@@ -133,27 +140,83 @@ public class dbaccess extends JFrame {
 
                     while (results.next()) {
                         String username = results.getString("Username");
+                        String password = results.getString("Password");
                         // String password = results.getString(""+ pass +"");
 
-                        if ((f.equals(username))) {
+                        if ((f.equals(username)) && (s.equals(password))) {
                             System.out.println("stuck here");
-                            JOptionPane.showMessageDialog(null, "Username  exist");
+                            JOptionPane.showMessageDialog(null, "Successfull Login");
+                            if (JOptionPane.showConfirmDialog(null, "Confirm if you want to join game", "Snake Party",
+                                    JOptionPane.YES_NO_OPTION) == JOptionPane.YES_OPTION) {
+                                gamePanel = new GamePanel(frame, client);
+                                gamePanel.display();
+                            }
                        }else 
                         {
-                                System.out.print("Stuck here not null");
-                            String sql = "INSERT INTO Snakeparty(Username ,Password )  VALUES('" + usern + "','" + pass
-                                    + "')";
-                            // class5 in above queary is a table
-                            // EXECUTE STATEMENT
-                            stm.executeUpdate(sql); // here insert query apply
-
-                            connection.close();
+                            
+                           JOptionPane.showMessageDialog(null, "Unsuccessfull Login");
+                           jtUsername.setText("");
+                           passwordField.setText("");
+                           // connection.close();
                         }
                     }
                 } catch (Exception ex) {
                     System.out.println(ex.getMessage());
                 }
 
+                
+                
+                
+            }
+        });
+        btnNewButton.setBounds(208, 229, 117, 29);
+        panel_1.add(btnNewButton);
+
+        JButton btnNewButton_1 = new JButton("Create Account");
+        btnNewButton_1.addActionListener(new ActionListener() {
+            @SuppressWarnings("deprecation")
+            public void actionPerformed(ActionEvent e) {
+                try {
+                    Class.forName("com.mysql.cj.jdbc.Driver");
+                    Connection connection = DriverManager.getConnection(
+                            "jdbc:mysql://localhost:3306/snakeparty", "root", "Testerp");
+                    Statement statement = connection.createStatement();
+
+                    ResultSet resultSet = statement.executeQuery("select * from Snakeparty");
+
+                    Statement stm = connection.createStatement();
+                    String usern = jtUsername.getText();
+                    String pass = passwordField.getText();
+                    String sql = "INSERT INTO Snakeparty(Username ,Password )  VALUES('" + usern + "','" + pass + "')";
+                    // class5 in above queary is a table
+                    // EXECUTE STATEMENT
+                    stm.executeUpdate(sql); // here insert query apply
+
+                    connection.close();
+
+                } catch (Exception ex) {
+                    System.out.println(ex.getMessage());
+                    
+                    String look = "Duplicate entry";
+                    boolean val = ex.getMessage().contains(look);
+                    if(val) {
+                        System.out.println("String found: "+look);
+                        JOptionPane.showMessageDialog(null, "Username  exist");
+                       
+                    }
+                    
+                    else 
+                      System.out.println("string not found");
+                }
+               // return false;
+                        
+                
+                    
+              
+
+            
+
+                
 //                String query = "SELECT * FROM Snakeparty WHERE Username=" +"\""+jtUsername+"\""+";";  //get username
 //                try {
 //              Statement stmt =  sqlConn.prepareStatement(query);
