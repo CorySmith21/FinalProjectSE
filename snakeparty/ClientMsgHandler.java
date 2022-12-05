@@ -102,7 +102,7 @@ public class ClientMsgHandler {
         } catch (Exception ex) {
             System.out.println(ex.getMessage());
         }
-        return false;
+        return true;
 
         
         
@@ -153,7 +153,7 @@ public class ClientMsgHandler {
             else 
               System.out.println("string not found");
         }
-        return false;
+        return true;
                 
         
             
