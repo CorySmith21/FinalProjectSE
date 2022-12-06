@@ -33,7 +33,6 @@ public class ClientMsgHandler {
                 String password = rs.getString("password");
                 LoginData user = new LoginData(username, password);
                 results.add(user);
-                System.out.println(results);
             }
 
             return results;

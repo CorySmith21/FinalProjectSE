@@ -38,7 +38,6 @@ public class CreateAccountPanel implements ActionListener {
     }
 
     void initializePanel() {
-        System.out.print("!!! initializing createAccountPanel");
         frame.getContentPane().add(panel);
         GridBagLayout gbl_panel = new GridBagLayout();
         gbl_panel.columnWidths = new int[] { 77, 0 };
@@ -151,7 +150,6 @@ public class CreateAccountPanel implements ActionListener {
     }
 
     void display() {
-        System.out.println("Displaying createAccountPanel");
         frame.getContentPane().removeAll();
         this.initializePanel();
         frame.validate();
