@@ -1,6 +1,7 @@
 package snakeparty;
 
 import java.io.IOException;
+import java.util.ArrayList;
 
 import javax.swing.JFrame;
 import ocsf.client.AbstractClient;
@@ -10,42 +11,36 @@ import ocsf.client.AbstractClient;
 
 public class GameClient extends AbstractClient {
     private JFrame frame = new JFrame();
-    private InitialPanel initialPanel;
+    private PanelControl mainControl;
 
     public GameClient() {
         super("localhost", 8300);
         frame.setVisible(true);
-        frame.setSize(469, 420);
-        frame.setResizable(true);
+        frame.setSize(450,450);
+        frame.setResizable(false);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        initialPanel = new InitialPanel(frame, this);
-        initialPanel.display();
-        this.check();
+        mainControl = new PanelControl(frame, this);
+        this.initialize();
     }
 
-    public void check() {
-        try {
-            this.openConnection();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        System.out.println(isConnected());
+    public void initialize() {
+        PanelControl.initialPanel.display();
     }
+    
 
-    public void connectionEstablished() {
-//        System.out.println("We're up baby!");
-    }
+    public void connectionEstablished() {}
 
     protected void handleMessageFromServer(Object arg0) {
-
+        
         if (arg0 instanceof ServerResponse) {
+            
             if (((ServerResponse) arg0).getTargetPanel().equals("LoginPanel")) {
-                LoginPanel loginPanel = new LoginPanel(frame, this);
+             
                 if (((ServerResponse) arg0).getStatus().equals(true)) {
-                    loginPanel.success();
+                    PanelControl.loginPanel.success();
                 }
                 if (((ServerResponse) arg0).getStatus().equals(false)) {
-                    loginPanel.failure();
+                    PanelControl.loginPanel.success();
                 }
 
             }
@@ -58,11 +53,39 @@ public class GameClient extends AbstractClient {
                     // createAccountPanel.failure()
                 }
             }
+            
+            if (((ServerResponse) arg0).getTargetPanel().equals("gamePanel")) {
+                 if (((ServerResponse) arg0).getStatus().equals(true)) {
+                     PanelControl.gamePanel.forceStartOrEnd(true);
+                 }
+                 if (((ServerResponse) arg0).getStatus().equals(false)) {
+                     // createAccountPanel.failure()
+                 }
+             }
+            
+            if (((ServerResponse) arg0).getTargetPanel().equals("gameScore")) {
+                PanelControl.setScores(((ServerResponse) arg0).getScores());
+            }
+             
+            
+            if (((ServerResponse) arg0).getTargetPanel().equals("all")) {
+                PanelControl.setNumberOfClientsConnected(((ServerResponse) arg0).getClientsConnected());
+            }
+            
+            if (((ServerResponse) arg0).getTargetPanel().equals("over")) {
+                PanelControl.endGame();
+            }
         }
+        
     }
 
     public void connectionClosed() {
-//        System.out.println("Time to shut her down...");
+        try {
+            this.sendToServer("killme");
+        } catch (IOException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
     }
 
     public static void main(String[] args) {
