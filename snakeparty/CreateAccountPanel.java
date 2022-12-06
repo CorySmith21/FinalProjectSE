@@ -11,6 +11,7 @@ import ocsf.client.AbstractClient;
 import javax.swing.JPasswordField;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
+import java.io.IOException;
 import java.awt.event.ActionEvent;
 import java.awt.GridBagLayout;
 import java.awt.GridBagConstraints;
@@ -29,6 +30,7 @@ public class CreateAccountPanel implements ActionListener {
     private JPanel panel_2;
     private JPanel panel_3;
     private JLabel lblNewLabel_1;
+    private JLabel lblEnterPassword;
 
     public CreateAccountPanel(JFrame frame, AbstractClient client) {
         this.frame = frame;
@@ -93,7 +95,7 @@ public class CreateAccountPanel implements ActionListener {
         jtUsername.setBounds(287, 134, 185, 26);
         jtUsername.setColumns(10);
 
-        JLabel lblEnterPassword = new JLabel("Enter Password");
+        lblEnterPassword = new JLabel("Enter Password");
         GridBagConstraints gbc_lblEnterPassword = new GridBagConstraints();
         gbc_lblEnterPassword.insets = new Insets(0, 0, 5, 5);
         gbc_lblEnterPassword.gridx = 1;
@@ -166,13 +168,14 @@ public class CreateAccountPanel implements ActionListener {
 
     public void actionPerformed(ActionEvent e) {
         Object source = e.getSource();
+        
         if (source == createAccountBtn) {
-//            CreateAccountData createAccountData = new CreateAccountData();
-//            try {
-//                client.sendToServer(createAccountData);
-//            } catch (IOException e1) {
-//                e1.printStackTrace();
-//            }
+            CreateAccountData createAccountData = new CreateAccountData(jtUsername.getText(), lblEnterPassword.getText());
+            try {
+                client.sendToServer(createAccountData);
+            } catch (IOException e1) {
+                e1.printStackTrace();
+            }
         }
 
         if (source == returnToLoginBtn) {
@@ -180,103 +183,5 @@ public class CreateAccountPanel implements ActionListener {
         }
 
     }
-//    public CreateAccountPanel() {
-//        getContentPane().setLayout(null);
-//        
-//        JPanel panel = new JPanel();
-//        panel.setBounds(6, 6, 634, 98);
-//        getContentPane().add(panel);
-//        
-//        JLabel lblCreateAccounttitle = new JLabel("Create Account");
-//        lblCreateAccounttitle.setFont(new Font("Kohinoor Gujarati", Font.PLAIN, 35));
-//        panel.add(lblCreateAccounttitle);
-//        
-//        JLabel lblNewLabel = new JLabel("Enter Username");
-//        lblNewLabel.setBounds(171, 135, 105, 25);
-//        getContentPane().add(lblNewLabel);
-//        
-//        jtUsername = new JTextField();
-//        jtUsername.setBounds(287, 134, 185, 26);
-//        getContentPane().add(jtUsername);
-//        jtUsername.setColumns(10);
-//        
-//        JLabel lblEnterPassword = new JLabel("Enter Password");
-//        lblEnterPassword.setBounds(171, 184, 105, 25);
-//        getContentPane().add(lblEnterPassword);
-//        
-//        passwordField = new JPasswordField();
-//        passwordField.setBounds(287, 183, 185, 25);
-//        getContentPane().add(passwordField);
-//        
-//        JLabel lblVerifyPassword = new JLabel("Verify Password");
-//        lblVerifyPassword.setBounds(171, 234, 105, 25);
-//        getContentPane().add(lblVerifyPassword);
-//        
-//        verifypasswordField = new JPasswordField();
-//        verifypasswordField.setBounds(287, 233, 185, 25);
-//        getContentPane().add(verifypasswordField);
-//        
-//        JButton btnNewButton = new JButton("Create Account");
-//        btnNewButton.addActionListener(new ActionListener() {
-//            private String pass;
-//
-//            @SuppressWarnings("deprecation")
-//            public void actionPerformed(ActionEvent e) {
-//                
-//                    
-//                    
-//                    try {
-//                        Class.forName("com.mysql.cj.jdbc.Driver");
-//                        Connection connection = DriverManager.getConnection(
-//                                "jdbc:mysql://localhost:3306/snakeparty", "root", "Testerp"
-//                        );
-//                        Statement statement = connection.createStatement();
-//                        
-//                        ResultSet resultSet = statement.executeQuery("select * from Snakeparty");
-//                       
-//                        Statement stm = connection.createStatement();
-//                       String usern= jtUsername.getText();
-//                       
-//                       
-//                       if( passwordField.getText() == verifypasswordField.getText()) {
-//                        
-//                          String pass = passwordField.getText();
-//                           System.out.println(pass);
-//                           
-//                           String sql = "INSERT INTO Snakeparty(Username ,Password )  VALUES('"+usern+"','"+pass+"')"  ;
-//                        //class5 in above queary is a table
-//                        //EXECUTE STATEMENT
-//                        stm.executeUpdate(sql); //here insert query apply
-//                       
-//                       
-//                        connection.close();
-//                       
-//                       
-//                    
-//                    
-//                       }else {
-//                           
-//                           JOptionPane.showMessageDialog(null,"Password Doesn't Match!" );
-//                       }
-//                       
-//                       
-//                      }catch(Exception ex){
-//                        System.out.println(ex.getMessage());
-//                    }
-//                       
-//            
-//                        
-//                   
-//                }
-//                  
-//                    
-//                
-//        
-//            });
-//            
-//
-//        btnNewButton.setBounds(267, 292, 140, 29);
-//        getContentPane().add(btnNewButton);
-//    }
 
 }

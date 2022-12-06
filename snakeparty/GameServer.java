@@ -184,9 +184,15 @@ public class GameServer extends AbstractServer {
         if (arg0.equals("over")) {
             this.endGame(arg1);
         }
+        
         if (arg0.equals("start")) {
             this.startGame(arg1);
         }
+        
+        if (arg0 instanceof ScoreData) {
+            this.updateClientScore((ScoreData) arg0, arg1);
+        }
+        
         if (arg0 instanceof LoginData) {
             Boolean ret = clientMsgHandler.verifyAccount((LoginData) arg0);
             if (ret) {
@@ -207,14 +213,27 @@ public class GameServer extends AbstractServer {
                 }
             }
         }
+        
         if (arg0 instanceof CreateAccountData) {
+            Boolean ret = clientMsgHandler.createNewAccount((CreateAccountData) arg0);
+            if (ret) {
+                try {
+                    ServerResponse response = new ServerResponse("CreateAccountPanel", ret);
+                    arg1.sendToClient(response);
 
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            } else {
+                try {
+                    ServerResponse response = new ServerResponse("CreateAccountPanel", ret);
+                    arg1.sendToClient(response);
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
         }
-
-        if (arg0 instanceof ScoreData) {
-            this.updateClientScore((ScoreData) arg0, arg1);
-        }
-
+        
         return;
     }
 

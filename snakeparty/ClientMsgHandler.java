@@ -54,67 +54,37 @@ public class ClientMsgHandler {
     }
 
     public boolean verifyAccount(LoginData loginData) {
-        return true;
+        String username = loginData.getUsername();
+        String password = loginData.getPassword();
+
+        ArrayList<LoginData> results = query("select * from users where username = '" + username + "';");
+
+        if (results.size() > 0) {
+            String qpassword = results.get(0).getPassword();
+            if (password.equals(qpassword)) {
+                return true;
+            } else {
+                return false;
+            }
+        } else {
+            return false;
+        }
     }
 
-    public boolean createNewAccount(String username, String password) {
-
-        return true;
-
+    public Boolean createNewAccount(CreateAccountData createAccountData) {
+        String username = createAccountData.getUsername();
+        String password = createAccountData.getPassword();
+        
+        String queryString = String.format("select * from users where username = \"%s\"; ", username);
+        ArrayList<LoginData> results = query(queryString);
+        
+        if (results.size() > 0) {
+            return false;
+        } else {
+            String encryptedPassword = String.format("%d", password.hashCode());
+            String insertString = String.format("insert into users(username, password) values (\"%s\", \"%s\");", username, encryptedPassword);
+            executeDML(insertString);
+            return true;
+        }   
     }
 }
-
-//  String queryString = String.format("select * from Snakeparty where Username = \"%s\"; ", username);
-//
-//  ArrayList<LoginData> results = query(queryString);
-//
-//  if (results.size() > 0) {
-//      String enteredPassword = String.format("%d", password.hashCode());
-//      String storedPassword = results.get(0).getPassword();
-//
-//      if (enteredPassword.equals(storedPassword)) {
-//          return true;
-//      } else {
-//          return false;
-//      }
-//  } else {
-//      return false;
-//  }
-
-//        String url = "jdbc:mysql://localhost:3306/snakeparty";
-//            String dusername = "root";
-//            String dpassword = "Testerp";
-//
-//            try {
-//                driver = DriverManager.getConnection(url, dusername, dpassword);
-//            } catch (SQLException ex) {
-//                ex.printStackTrace();
-//                return false;
-//            }
-//        
-//        
-//        String queryString = String.format("select * from Snakeparty where Username = \"%s\"; ", username);
-//        ArrayList<LoginData> results = query(queryString);
-//
-//        if (results.size() > 0) {
-//            return false;
-//        } else {
-//            
-//            Statement stm = null;
-//            try {
-//                stm = driver.createStatement();
-//            } catch (SQLException e1) {
-//                // TODO Auto-generated catch block
-//                e1.printStackTrace();
-//            }
-//            String encryptedPassword = String.format("%d", password.hashCode());
-//            String insertString = "INSERT INTO Snakeparty(Username ,Password )  VALUES('" + username + "','" +  encryptedPassword + "')";
-//            System.out.println(insertString);
-//           // executeDML(insertString);
-//            try {
-//                stm.executeUpdate(insertString);
-//            } catch (SQLException e) {
-//                // TODO Auto-generated catch block
-//                e.printStackTrace();
-//            }
-//            return true;

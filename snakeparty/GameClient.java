@@ -45,12 +45,11 @@ public class GameClient extends AbstractClient {
 
             }
             if (((ServerResponse) arg0).getTargetPanel().equals("CreateAccountPanel")) {
-               // CreateAccountPanel createAccountPanel = new CreateAccountPanel(frame, this);
                 if (((ServerResponse) arg0).getStatus().equals(true)) {
-                    // createAccountPanel.success()
+                     PanelControl.createAccountPanel.success();
                 }
                 if (((ServerResponse) arg0).getStatus().equals(false)) {
-                    // createAccountPanel.failure()
+                    PanelControl.createAccountPanel.failure();
                 }
             }
             
