@@ -56,7 +56,7 @@ public class ClientMsgHandler {
         String username = loginData.getUsername();
         String password = loginData.getPassword();
 
-        ArrayList<LoginData> results = query("select * from users where username = '" + username + "';");
+        ArrayList<LoginData> results = query("select * from Snakeparty.Snakeparty where Username = '" + username + "';");
 
         if (results.size() > 0) {
             String qpassword = results.get(0).getPassword();
@@ -74,14 +74,12 @@ public class ClientMsgHandler {
         String username = createAccountData.getUsername();
         String password = createAccountData.getPassword();
         
-        String queryString = String.format("select * from users where username = \"%s\"; ", username);
-        ArrayList<LoginData> results = query(queryString);
+        ArrayList<LoginData> results = query("select * from Snakeparty.Snakeparty where Username = '" + username + "';");
         
         if (results.size() > 0) {
             return false;
         } else {
-            String encryptedPassword = String.format("%d", password.hashCode());
-            String insertString = String.format("insert into users(username, password) values (\"%s\", \"%s\");", username, encryptedPassword);
+            String insertString = String.format("insert into Snakeparty(Username, Password) values (\"%s\", \"%s\");", username, password);
             executeDML(insertString);
             return true;
         }   

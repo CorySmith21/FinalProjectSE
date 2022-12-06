@@ -154,21 +154,29 @@ public class CreateAccountPanel implements ActionListener {
         this.initializePanel();
         frame.validate();
         frame.repaint();
+        try {
+            client.openConnection();
+        } catch (IOException e2) {
+            e2.printStackTrace();
+        }
     }
 
     public void success() {
-        PanelControl.loginPanel.display();
+        PanelControl.initialPanel.display();
     }
 
     public void failure() {
-        this.display();
+        frame.getContentPane().removeAll();
+        this.initializePanel();
+        frame.validate();
+        frame.repaint();
     }
 
     public void actionPerformed(ActionEvent e) {
         Object source = e.getSource();
         
         if (source == createAccountBtn) {
-            CreateAccountData createAccountData = new CreateAccountData(jtUsername.getText(), lblEnterPassword.getText());
+            CreateAccountData createAccountData = new CreateAccountData(jtUsername.getText(), passwordField.getText());
             try {
                 client.sendToServer(createAccountData);
             } catch (IOException e1) {

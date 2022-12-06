@@ -120,7 +120,10 @@ public class LoginPanel implements ActionListener {
     }
 
     public void failure() {
-        this.display();
+        frame.getContentPane().removeAll();
+        this.initializePanel();
+        frame.validate();
+        frame.repaint();
     }
 
     public void display() {
@@ -128,16 +131,16 @@ public class LoginPanel implements ActionListener {
         this.initializePanel();
         frame.validate();
         frame.repaint();
+        try {
+            client.openConnection();
+        } catch (IOException e2) {
+            e2.printStackTrace();
+        }
     }
 
     public void actionPerformed(ActionEvent e) {
         Object source = e.getSource();
         if (source == loginBtn) {
-            try {
-                client.openConnection();
-            } catch (IOException e2) {
-                e2.printStackTrace();
-            }
             @SuppressWarnings("deprecation")
             LoginData loginData = new LoginData(jtUsername.getText(), passwordField.getText());
             try {

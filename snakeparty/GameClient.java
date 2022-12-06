@@ -40,7 +40,7 @@ public class GameClient extends AbstractClient {
                     PanelControl.loginPanel.success();
                 }
                 if (((ServerResponse) arg0).getStatus().equals(false)) {
-                    PanelControl.loginPanel.success();
+                    PanelControl.loginPanel.failure();
                 }
 
             }
