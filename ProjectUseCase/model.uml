@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<uml:Model xmi:version="20131001" xmlns:xmi="http://www.omg.org/spec/XMI/20131001" xmlns:uml="http://www.eclipse.org/uml2/5.0.0/UML" xmi:id="_77nhMHWFEe2PO9XYG3Jjlg" name="model">
+  <packageImport xmi:type="uml:PackageImport" xmi:id="_8BdqgHWFEe2PO9XYG3Jjlg">
+    <importedPackage xmi:type="uml:Model" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#_0"/>
+  </packageImport>
+  <packagedElement xmi:type="uml:Package" xmi:id="_Ob8BwHWGEe2PO9XYG3Jjlg" name="SnakeParty">
+    <packagedElement xmi:type="uml:Package" xmi:id="_VBNsoHWGEe2PO9XYG3Jjlg" name="InitialPanel">
+      <packageImport xmi:type="uml:PackageImport" xmi:id="_epWPEHWHEe2PO9XYG3Jjlg" importedPackage="_74I58HWGEe2PO9XYG3Jjlg"/>
+      <packageImport xmi:type="uml:PackageImport" xmi:id="_gXJNoHWHEe2PO9XYG3Jjlg" importedPackage="__7v5UHWGEe2PO9XYG3Jjlg"/>
+      <packageImport xmi:type="uml:PackageImport" xmi:id="_-0aBUHWHEe2PO9XYG3Jjlg" importedPackage="_ZcfvsHWHEe2PO9XYG3Jjlg"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Package" xmi:id="_1qiIMHWGEe2PO9XYG3Jjlg" name="GameServerGui">
+      <packageImport xmi:type="uml:PackageImport" xmi:id="_A65zwHWIEe2PO9XYG3Jjlg" importedPackage="_H30_EHWHEe2PO9XYG3Jjlg"/>
+      <packageImport xmi:type="uml:PackageImport" xmi:id="_CNSBoHWIEe2PO9XYG3Jjlg" importedPackage="_ZcfvsHWHEe2PO9XYG3Jjlg"/>
+      <packageImport xmi:type="uml:PackageImport" xmi:id="_DSYBcHWIEe2PO9XYG3Jjlg" importedPackage="_Q2cf4HWHEe2PO9XYG3Jjlg"/>
+      <packageImport xmi:type="uml:PackageImport" xmi:id="_ZKK-sHWJEe2PO9XYG3Jjlg" importedPackage="_74I58HWGEe2PO9XYG3Jjlg"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Package" xmi:id="_74I58HWGEe2PO9XYG3Jjlg" name="LoginGui">
+      <packageImport xmi:type="uml:PackageImport" xmi:id="_j5-bMHWHEe2PO9XYG3Jjlg" importedPackage="_N-A6MHWHEe2PO9XYG3Jjlg"/>
+      <packageImport xmi:type="uml:PackageImport" xmi:id="_3W8xQHWHEe2PO9XYG3Jjlg" importedPackage="_Q2cf4HWHEe2PO9XYG3Jjlg"/>
+      <packageImport xmi:type="uml:PackageImport" xmi:id="_76dYsHWHEe2PO9XYG3Jjlg" importedPackage="_ZcfvsHWHEe2PO9XYG3Jjlg"/>
+      <packageImport xmi:type="uml:PackageImport" xmi:id="_b1XZoHWJEe2PO9XYG3Jjlg" importedPackage="_H30_EHWHEe2PO9XYG3Jjlg"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Package" xmi:id="__7v5UHWGEe2PO9XYG3Jjlg" name="CreateAccountGui">
+      <packageImport xmi:type="uml:PackageImport" xmi:id="_kp9GoHWHEe2PO9XYG3Jjlg" importedPackage="_N-A6MHWHEe2PO9XYG3Jjlg"/>
+      <packageImport xmi:type="uml:PackageImport" xmi:id="_rDHoIHWHEe2PO9XYG3Jjlg" importedPackage="_H30_EHWHEe2PO9XYG3Jjlg"/>
+      <packageImport xmi:type="uml:PackageImport" xmi:id="_2iiRwHWHEe2PO9XYG3Jjlg" importedPackage="_Q2cf4HWHEe2PO9XYG3Jjlg"/>
+      <packageImport xmi:type="uml:PackageImport" xmi:id="_6mpAYHWHEe2PO9XYG3Jjlg" importedPackage="_ZcfvsHWHEe2PO9XYG3Jjlg"/>
+      <packageImport xmi:type="uml:PackageImport" xmi:id="_XswlgHWJEe2PO9XYG3Jjlg" importedPackage="_74I58HWGEe2PO9XYG3Jjlg"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Package" xmi:id="_DuWBMHWHEe2PO9XYG3Jjlg" name="Game">
+      <packageImport xmi:type="uml:PackageImport" xmi:id="_7QRzQHWHEe2PO9XYG3Jjlg" importedPackage="_ZcfvsHWHEe2PO9XYG3Jjlg"/>
+      <packageImport xmi:type="uml:PackageImport" xmi:id="_jiAKoHWIEe2PO9XYG3Jjlg" importedPackage="_h78LwHWIEe2PO9XYG3Jjlg"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Package" xmi:id="_H30_EHWHEe2PO9XYG3Jjlg" name="Server Communication">
+      <packageImport xmi:type="uml:PackageImport" xmi:id="_mDwLIHWHEe2PO9XYG3Jjlg" importedPackage="_N-A6MHWHEe2PO9XYG3Jjlg"/>
+      <packageImport xmi:type="uml:PackageImport" xmi:id="_r-ENcHWHEe2PO9XYG3Jjlg" importedPackage="_ZcfvsHWHEe2PO9XYG3Jjlg"/>
+      <packageImport xmi:type="uml:PackageImport" xmi:id="_zXkxoHWHEe2PO9XYG3Jjlg" importedPackage="_DuWBMHWHEe2PO9XYG3Jjlg"/>
+      <packageImport xmi:type="uml:PackageImport" xmi:id="_1cw8gHWHEe2PO9XYG3Jjlg" importedPackage="_Q2cf4HWHEe2PO9XYG3Jjlg"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Package" xmi:id="_N-A6MHWHEe2PO9XYG3Jjlg" name="ClientMsgHandler">
+      <packageImport xmi:type="uml:PackageImport" xmi:id="_5LnM0HWHEe2PO9XYG3Jjlg" importedPackage="_Q2cf4HWHEe2PO9XYG3Jjlg"/>
+      <packageImport xmi:type="uml:PackageImport" xmi:id="_PeIXMHWJEe2PO9XYG3Jjlg" importedPackage="_ZcfvsHWHEe2PO9XYG3Jjlg"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Package" xmi:id="_Q2cf4HWHEe2PO9XYG3Jjlg" name="mysql-connector-java"/>
+    <packagedElement xmi:type="uml:Package" xmi:id="_ZcfvsHWHEe2PO9XYG3Jjlg" name="ocsf.jar"/>
+    <packagedElement xmi:type="uml:Package" xmi:id="_h78LwHWIEe2PO9XYG3Jjlg" name="Resources"/>
+    <packagedElement xmi:type="uml:Package" xmi:id="_4gTwkHWIEe2PO9XYG3Jjlg" name="Client">
+      <packageImport xmi:type="uml:PackageImport" xmi:id="_CCHeAHWJEe2PO9XYG3Jjlg" importedPackage="_N-A6MHWHEe2PO9XYG3Jjlg"/>
+      <packageImport xmi:type="uml:PackageImport" xmi:id="_DAOFAHWJEe2PO9XYG3Jjlg" importedPackage="_H30_EHWHEe2PO9XYG3Jjlg"/>
+      <packageImport xmi:type="uml:PackageImport" xmi:id="_Dy8icHWJEe2PO9XYG3Jjlg" importedPackage="_DuWBMHWHEe2PO9XYG3Jjlg"/>
+      <packageImport xmi:type="uml:PackageImport" xmi:id="_Ex1zoHWJEe2PO9XYG3Jjlg" importedPackage="_VBNsoHWGEe2PO9XYG3Jjlg"/>
+    </packagedElement>
+  </packagedElement>
+</uml:Model>
